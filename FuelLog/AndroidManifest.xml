@@ -1,18 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="de.gfred.fuellog"
-      android:versionCode="1"
-      android:versionName="1.0">
+      package="de.android.fuellog" android:versionCode="13" android:versionName="2.0.0">
     <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name=".FuelLog"
-                  android:label="@string/app_name">
+        <activity android:label="@string/app_name" android:name=".activity.Dashboard"
+			android:theme="@style/Theme"
+			android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+		<activity android:name=".activity.AddFuel"
+                  android:theme="@style/Theme"
+                  android:screenOrientation="portrait">
+        </activity>
+
+		<activity android:name=".activity.FuelDetails"
+                  android:theme="@style/Theme"
+                  android:screenOrientation="portrait">
+        </activity>
+        
+		<activity android:name=".activity.History"
+                  android:theme="@style/Theme"
+                  android:screenOrientation="portrait">
+        </activity>
+        
+		<activity android:name=".activity.Statistic"
+                  android:theme="@style/Theme"
+                  android:screenOrientation="portrait">
+        </activity>                
 
     </application>
-    <uses-sdk android:minSdkVersion="7" />
+
+<uses-sdk android:targetSdkVersion="7" android:minSdkVersion="7"></uses-sdk>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
 
 </manifest> 

@@ -1,5 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, FuelLog!</string>
+    
     <string name="app_name">Fuel Log</string>
+<string name="menu_add">Add</string>
+<string name="menu_quit">Quit</string>
+<string name="add_title">Add new Fuel Log entry</string>
+<string name="add_cancelButton">Cancel</string>
+<string name="error_title">Wrong Input</string>
+<string name="error_msg">Only one or more digits are allowed! Use point for float-pointing numbers.</string>
+
+<string name="error_sd_msg">No SD Card mounted!\nPlease insert or mount your SD card.</string>
+<string name="entry_driven">Driven</string>
+<string name="entry_full">Fuel Costs</string>
+<string name="add_driven">Driven Kilometer:</string>
+<string name="add_fuelcost">Fuel Costs:</string>
+<string name="add_literprice">Fuel Liter Price:</string>
+<string name="entry_literprice">Literprice</string>
+<string name="add_date">Date:</string><string name="options_change">Change entry</string><string name="options_delete">Delete entry</string><string name="options_cancel">Cancel</string>
+<string name="options_title">Options</string>
+<string name="change_title">Edit Entry</string><string name="comment_char">Characters:</string>
+<string name="total_cost">Total cost of fuel:</string><string name="options_comment">Add Comment</string>
+<string name="options_deletecomment">Remove Comment</string>
+<string name="options_editcomment">Edit Comment</string>
+<string name="menu_settings">Preferences</string>
+
+    
+    <string name="ok">Ok</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="notset">Nicht Gesetzt!</string>
+
+    <string name="datePattern">dd.MM.yyyy</string>
+    
+    <string name="account_label">Fleetmanager</string>
+    
+   
+    
+    <string name="menu_logoff">Abmelden</string>
+    
+    <string name="sdcard_error_title">SD Karten Fehler!</string>
+    <string name="sdcard_error_message">Es wurde keine SD Karte gefunden! Bitte einlegen oder mounten!</string>
+    
+    <string name="fuel_type_gasoline">Benzin</string>
+    <string name="fuel_type_diesel">Diesel</string>
+    <string name="fuel_type_premium">Premium</string>
+    <string name="fuel_type_electric">Elektrisch</string>
+    
+    <string name="contract_type_rent">Leihwagen</string>
+    <string name="contract_type_leasing">Leasing</string>
+    <string name="contract_type_buy">Gekauft</string>
+    
+    <string name="login_user">Benutzer:</string>
+    <string name="login_password">Passwort:</string>
+    <string name="login_button">Anmelden</string>
+    
+    <string name="login_failed_title">Anmeldung fehlgeschlagen!</string>
+    <string name="login_failed_message">Benutzer und Passwort Kombination stimmt nicht. Bitte erneut versuchen!</string>
+	<string name="login_authorize_message">Am Server Anmelden. Bitte warten...</string>
+
+	
+	<string name="dashboard_new_fill_up">Tanken</string>
+	<string name="dashboard_history">Tank Verlauf</string>
+	<string name="dashboard_statistics">Statistik</string>
+	<string name="dashboard_preferences">Einstellungen</string>
+	
+	<string name="addbooking_title">Neue Buchung</string>
+	
+	<string name="addfuel_title">Tank Buchung</string>
+	<string name="addfuel_date">Datum:</string>
+	<string name="addfuel_time">Zeit:</string>
+	<string name="addfuel_location">Ort:</string>
+	<string name="addfuel_mileage">Kilometerstand:</string>
+	<string name="addfuel_amount">Betrag:</string>
+	<string name="addfuel_comment">Kommentar:</string>
+	<string name="addfuel_savebutton">Buchung Anlegen</string>
+	<string name="addfuel_camerabutton">Foto Aufnehmen</string>
+	<string name="addfuel_user">Benutzer:</string>
+	
+	<string name="bookings_title">Buchungen</string>
+	
+	<string name="documents_title">Dokumente</string>
+	
+	<string name="masterdata_title">Stammdaten</string>
+	<string name="masterdata_licno">Kennzeichen:</string>
+	<string name="masterdata_manufact">Hersteller:</string>
+	<string name="masterdata_modelname">Modell:</string>
+	<string name="masterdata_construction">Baujahr:</string>
+	<string name="masterdata_fueltype">Treibstofftyp:</string>
+	<string name="masterdata_contracttype">Vertragstyp:</string>
+	<string name="masterdata_description">Beschreibung:</string>
+	<string name="masterdata_entryDate">Eintrittsdatum:</string>
+	<string name="masterdata_terminationDate">Ablaufdatum:</string>
+	<string name="masterdata_changeCarButton">Standard Fahrzeug ändern</string>
+	<string name="masterdata_changeCarDialogTitle">Fahrzeug wählen</string>
+	
+
 </resources>

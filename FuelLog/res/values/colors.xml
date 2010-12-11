@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="text">#000000</color>
+	<color name="background">#FCEBB6</color>
+	<color name="background_end">#78C0A8</color>
+	<color name="top_text">#ffffff</color>
+	<color name="top_background">#5E412F</color>
+	<color name="top_separator">#ffffff</color>
+	<color name="top_buttonSelectedBackground">#d9b614</color>
+	<color name="bottom_background">#dddddd</color>
+	<color name="divider_color">#ffffff</color>
+</resources>
