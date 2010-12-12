@@ -1,6 +1,9 @@
 package de.android.fuellog.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import android.util.Log;
 
 public class FuelData {
 
@@ -93,5 +96,11 @@ public class FuelData {
 
 	public void setPicturePath(String picturePath) {
 		this.picturePath = picturePath;
+	}
+
+	@Override
+	public String toString() {
+		Log.d("Fuel Data", (date.getTime() == 1292112000000L) + "???");
+		return new SimpleDateFormat("dd.MM.yyyy").format(date);
 	}
 }

@@ -55,5 +55,161 @@
 			/>
 	</LinearLayout>
 	
+	<TableLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:stretchColumns="2"	
+		android:layout_marginTop="5sp"
+	>
+	
+		<TableRow
+			android:id="@+id/fillup_date_row" android:paddingTop="3sp">
+        	<TextView
+        	android:id="@+id/fillup_date_label"
+            	android:layout_column="1"
+            	android:text="@string/fillup_date"
+            	android:padding="3dip"
+				android:textColor="@color/text"
+            	android:textSize="16sp" android:layout_gravity="center_vertical"/>
+        	<EditText
+            	android:id="@+id/fillup_date_text"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            	android:digits="0123456789."
+            	android:cursorVisible="false" android:freezesText="true" android:inputType="none" android:gravity="left|center_vertical|fill_vertical" android:singleLine="true"/>
+    	</TableRow>
+    	
+    	<TableRow
+    	android:id="@+id/fillup_mileage_row" android:clipToPadding="false" android:paddingTop="3sp">
+        	<TextView
+        	android:id="@+id/fillup_mileage_label"
+            	android:layout_column="1"
+            	android:text="@string/fillup_mileage"
+            	android:padding="3dip"    
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            android:layout_gravity="center_vertical"/>
+			<EditText
+            	android:id="@+id/fillup_mileage_text"
+            	android:textColor="@color/text"
+            	android:digits="0123456789."
+            	android:inputType="number|numberSigned|numberDecimal"
+            android:gravity="left|center_vertical|fill_vertical" android:singleLine="true" android:textSize="16sp"/>
+    	</TableRow>	
+
+    	<TableRow
+    	android:id="@+id/fillup_price_row" android:paddingTop="3sp">
+        	<TextView
+        	android:id="@+id/fillup_price_label"
+            	android:layout_column="1"
+            	android:text="@string/fillup_price"
+            	android:padding="3dip"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            android:layout_gravity="center_vertical"/>
+        	<EditText
+            	android:id="@+id/fillup_price_text"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            	android:singleLine="true"
+            	android:digits="0123456789."
+            	android:inputType="number|numberSigned|numberDecimal"
+            android:gravity="left|center_vertical|fill_vertical"/>
+    	</TableRow>	
+
+    	<TableRow
+    	android:id="@+id/fillup_amount_row" android:paddingTop="3sp">
+        	<TextView
+        	android:id="@+id/fillup_amount_label"
+            	android:layout_column="1"
+            	android:text="@string/fillup_amount"
+            	android:padding="3dip"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            android:layout_gravity="center_vertical"/>
+        	<EditText
+            	android:id="@+id/fillup_amount_text"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            	android:singleLine="true"
+            	android:digits="0123456789."
+            	android:inputType="number|numberSigned|numberDecimal"
+            android:gravity="left|center_vertical|fill_vertical"/>
+    	</TableRow>	
+    	
+		<TableRow
+		android:id="@+id/fillup_comment_row" android:paddingTop="3sp">
+        	<TextView
+        	android:id="@+id/fillup_comment_label"
+            	android:layout_column="1"
+            	android:text="@string/fillup_comment"
+            	android:padding="3dip"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            android:layout_gravity="center_vertical"/>
+        	<EditText
+            	android:id="@+id/fillup_comment_text"
+            	android:maxLength="200"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            	android:singleLine="true"
+            android:gravity="left|center_vertical|fill_vertical"/>
+    	</TableRow>	
+    	    	
+		<TableRow
+		android:id="@+id/fillup_location_row" android:paddingTop="3sp">
+        	<TextView
+        		android:id="@+id/fillup_location_label"
+            	android:layout_column="1"
+            	android:text="@string/fillup_location"
+            	android:padding="3dip" 
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            android:layout_gravity="center_vertical"/>
+           	<EditText
+            	android:id="@+id/fillup_location_text"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            	android:singleLine="true"
+            android:gravity="left|center_vertical|fill_vertical"/>
+    	</TableRow>	
+	
+	</TableLayout>
+	
+		<LinearLayout	
+		android:id="@+id/masterdataChangeDefaultCarLayout"	
+		android:layout_width="fill_parent"
+		android:layout_height="50dip"
+		android:layout_gravity="bottom"
+		android:gravity="center|bottom"
+		android:orientation="horizontal"
+		android:background="@color/bottom_background"
+		android:visibility="visible"
+	>
+
+		<Button
+		android:id="@+id/fillup_takepicture_button"
+		android:gravity="center"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@color/text"
+		android:text="@string/fillup_takepicture"
+		android:layout_weight="1"
+		android:visibility="gone"
+		/>
+		
+		<Button
+		android:id="@+id/fillup_save_button"
+		android:gravity="center"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@color/text"
+		android:text="@string/fillup_save"
+		android:layout_weight="2"
+		/>
+
+	</LinearLayout>
+	
 </LinearLayout>
 

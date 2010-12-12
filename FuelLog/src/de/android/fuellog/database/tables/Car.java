@@ -1,7 +1,7 @@
 package de.android.fuellog.database.tables;
 
 public interface Car {
-	String TABLE_NAME = "fuel";
+	String TABLE_NAME = "car";
 
 	String ID = "_id";
 	String CAR_NAME = "carname";

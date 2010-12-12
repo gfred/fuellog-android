@@ -20,4 +20,13 @@
 <string name="options_cancel">Abbrechen</string>
 <string name="options_comment">Kommentar hinzufügen</string>
 <string name="comment_char">Zeichen:</string><string name="options_deletecomment">Kommentar entfernen</string><string name="options_editcomment">Kommentar bearbeiten</string><string name="menu_settings">Einstellungen</string>
+
+	<string name="fillup_fillup_date">Datum:</string>
+	<string name="fillup_mileage">Kilometerstand:</string>
+	<string name="fillup_price">Literpreis:</string>
+	<string name="fillup_amount">Tankkosten:</string>
+	<string name="fillup_comment">Kommentar:</string>
+	<string name="fillup_location">Ort:</string>
+	<string name="fillup_save">Speichern</string>
+	<string name="fillup_takepicture">Tankbeleg Foto</string>
 </resources>

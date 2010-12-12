@@ -16,6 +16,7 @@ public class FuelDetails extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_fillup_details);
 	}
 
 	@Override

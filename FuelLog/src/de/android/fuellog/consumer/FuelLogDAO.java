@@ -66,7 +66,7 @@ public class FuelLogDAO {
 			fuelData.setComment(cursor.getString(cursor.getColumnIndex(Fuel.COMMENT)));
 			fuelData.setCosts(cursor.getDouble(cursor.getColumnIndex(Fuel.COSTS)));
 			fuelData.setCurrentDistance(cursor.getDouble(cursor.getColumnIndex(Fuel.CURRENT_DISTANCE)));
-			fuelData.setDate(new Date(cursor.getLong(cursor.getColumnIndex(Fuel.LAST_DISTANCE))));
+			fuelData.setDate(new Date(cursor.getLong(cursor.getColumnIndex(Fuel.FUEL_DATE))));
 			fuelData.setLastDistance(cursor.getDouble(cursor.getColumnIndex(Fuel.LAST_DISTANCE)));
 			fuelData.setLocation(cursor.getString(cursor.getColumnIndex(Fuel.LOCATION)));
 			fuelData.setPicturePath(cursor.getString(cursor.getColumnIndex(Fuel.PICTURE_PATH)));
