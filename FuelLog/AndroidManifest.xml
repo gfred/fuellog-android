@@ -11,7 +11,7 @@
             </intent-filter>
         </activity>
         
-		<activity android:name=".activity.AddFuel"
+		<activity android:name=".activity.FillUp"
                   android:theme="@style/Theme"
                   android:screenOrientation="portrait">
         </activity>
@@ -29,7 +29,15 @@
 		<activity android:name=".activity.Statistic"
                   android:theme="@style/Theme"
                   android:screenOrientation="portrait">
-        </activity>                
+        </activity>    
+        
+		<activity android:name=".activity.CarSelection"
+                  android:theme="@style/Theme"
+                  android:screenOrientation="portrait">
+        </activity>                     
+
+	    <provider android:name="de.android.fuellog.provider.FuelLogProvider" 
+    		android:authorities="de.android.fuellog.provider" />
 
     </application>
 

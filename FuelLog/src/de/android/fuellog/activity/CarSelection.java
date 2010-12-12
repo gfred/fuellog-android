@@ -3,10 +3,7 @@ package de.android.fuellog.activity;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class AddFuel extends Activity {
-	private static final String TAG = "de.android.fuellog.activity.AddFuel";
-	private static final boolean DEBUG = false;
-
+public class CarSelection extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

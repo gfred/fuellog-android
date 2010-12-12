@@ -39,7 +39,7 @@
 			style="@style/TitleBarSeparator" 
 			/>
 	    <ImageButton
-	   	 	android:id="@+id/searchTopDashBoard"
+	   	 	android:id="@+id/dashboard_SearchButton"
 	    	android:layout_width="45dip" 
 	    	android:layout_height="fill_parent"	    	
 	    	android:background="@drawable/topbuttonbackground"

@@ -31,11 +31,7 @@
     <string name="no">Nein</string>
     <string name="notset">Nicht Gesetzt!</string>
 
-    <string name="datePattern">dd.MM.yyyy</string>
-    
-    <string name="account_label">Fleetmanager</string>
-    
-   
+    <string name="datePattern">dd.MM.yyyy</string>   
     
     <string name="menu_logoff">Abmelden</string>
     

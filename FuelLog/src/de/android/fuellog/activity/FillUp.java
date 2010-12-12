@@ -7,60 +7,38 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import de.android.fuellog.R;
 import de.android.fuellog.util.Values;
 
-public class Dashboard extends Activity {
-	private static final String TAG = "de.android.fuellog.activity.Dashboard";
+public class FillUp extends Activity {
+	private static final String TAG = "de.android.fuellog.activity.AddFuel";
 	private static final boolean DEBUG = false;
 
-	private Button fillUpButton = null;
-	private Button historyButton = null;
-	private Button preferencesButton = null;
-	private Button statisticsButton = null;
+	private ImageButton homeButton = null;
+	private ImageButton searchButton = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_dashboard);
+		setContentView(R.layout.activity_fillup);
 
-		fillUpButton = (Button) findViewById(R.id.dashboard_fill_up_button);
-		fillUpButton.setOnClickListener(new View.OnClickListener() {
+		homeButton = (ImageButton) findViewById(R.id.fillUp_HomeButton);
+		homeButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(Dashboard.this, FillUp.class);
+				Intent intent = new Intent(FillUp.this, Dashboard.class);
 				startActivityForResult(intent, Values.QUIT_APPLICATION);
+				quitApplication();
 			}
 		});
 
-		historyButton = (Button) findViewById(R.id.dashboard_history_button);
-		historyButton.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(Dashboard.this, History.class);
-				startActivityForResult(intent, Values.QUIT_APPLICATION);
-			}
-		});
-
-		preferencesButton = (Button) findViewById(R.id.dashboard_preferences_button);
-		preferencesButton.setOnClickListener(new View.OnClickListener() {
-
+		searchButton = (ImageButton) findViewById(R.id.fillUp_SearchButton);
+		searchButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
-			}
-		});
-
-		statisticsButton = (Button) findViewById(R.id.dashboard_statistics_button);
-		statisticsButton.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(Dashboard.this, Statistic.class);
-				startActivityForResult(intent, Values.QUIT_APPLICATION);
 			}
 		});
 	}
