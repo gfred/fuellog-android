@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import de.android.fuellog.R;
 import de.android.fuellog.activity.view.HistoryListView;
@@ -22,48 +21,17 @@ public class History extends Activity {
 	private static final String TAG = "de.android.fuellog.activity.History";
 	private static final boolean DEBUG = false;
 
-	private ImageButton homeButton = null;
-	private ImageButton searchButton = null;
-	private ImageButton fillUpButton = null;
+	private ListView historyList;
+	private HistoryListView historyListElements;
 
-	private ListView historyList = null;
-	private HistoryListView historyListElements = null;
-
-	private FuelLogDAO dao = null;
+	private FuelLogDAO dao;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_history);
 
-		dao = FuelLogDAO.getInstancte(this);
-
-		homeButton = (ImageButton) findViewById(R.id.history_HomeButton);
-		homeButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(History.this, Dashboard.class);
-				startActivityForResult(intent, Values.QUIT_APPLICATION);
-				quitApplication();
-			}
-		});
-
-		searchButton = (ImageButton) findViewById(R.id.history_SearchButton);
-		searchButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-			}
-		});
-
-		fillUpButton = (ImageButton) findViewById(R.id.history_AddFuelButton);
-		fillUpButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(History.this, FillUp.class);
-				startActivityForResult(intent, Values.QUIT_APPLICATION);
-			}
-		});
+		dao = FuelLogDAO.getInstance(this);
 
 		historyListElements = new HistoryListView(this, R.layout.view_history_list, new ArrayList<FuelData>(
 				dao.getAllFuelData()));
@@ -80,6 +48,19 @@ public class History extends Activity {
 		});
 	}
 
+	public final void onClickHome(final View view) {
+		startActivityForResult(new Intent(this, Dashboard.class), Values.QUIT_APPLICATION);
+		closeActivities();
+	}
+
+	public final void onClickFillUp(final View view) {
+		startActivityForResult(new Intent(this, FillUp.class), Values.QUIT_APPLICATION);
+	}
+
+	public final void onClickSearch(final View view) {
+
+	}
+
 	@Override
 	protected final void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -87,7 +68,7 @@ public class History extends Activity {
 		switch (resultCode) {
 		case Values.QUIT_APPLICATION:
 			if (data != null && data.getExtras().getInt(Values.QUIT_APP_RESULT) == Values.QUIT_APPLICATION) {
-				quitApplication();
+				closeActivities();
 			}
 			break;
 		default:
@@ -115,7 +96,7 @@ public class History extends Activity {
 
 		switch (item.getItemId()) {
 		case 1:
-			quitApplication();
+			closeActivities();
 			break;
 		default:
 			break;
@@ -124,7 +105,7 @@ public class History extends Activity {
 		return super.onMenuItemSelected(featureId, item);
 	}
 
-	private void quitApplication() {
+	private void closeActivities() {
 		Intent quitApplication = new Intent();
 		quitApplication.putExtra(Values.QUIT_APP_RESULT, Values.QUIT_APPLICATION);
 		setResult(Values.QUIT_APPLICATION, quitApplication);

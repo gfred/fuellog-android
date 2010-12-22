@@ -15,10 +15,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TableRow;
 import de.android.fuellog.R;
 import de.android.fuellog.consumer.DAOUtils;
@@ -27,28 +25,23 @@ import de.android.fuellog.model.FuelData;
 import de.android.fuellog.util.Values;
 
 public class FillUp extends Activity {
-	private static final String TAG = "de.android.fuellog.activity.AddFuel";
+	private static final String TAG = "de.android.fuellog.activity.FillUp";
 	private static final boolean DEBUG = false;
 
 	private static final int DATE_TIME_PICKER_DIALOG = 0;
 	private static final int ERROR_DIALOG = 1;
 
-	private ImageButton homeButton = null;
-	private ImageButton searchButton = null;
+	private EditText dateText;
+	private EditText mileAgeText;
+	private EditText priceText;
+	private EditText totalCostsText;
+	private EditText commentText;
+	private EditText locationText;
 
-	private EditText dateText = null;
-	private EditText mileAgeText = null;
-	private EditText priceText = null;
-	private EditText totalCostsText = null;
-	private EditText commentText = null;
-	private EditText locationText = null;
-
-	private TableRow dateRow = null;
-	private TableRow mileAgeRow = null;
-	private TableRow priceRow = null;
-	private TableRow totalCostsRow = null;
-
-	private Button saveButton = null;
+	private TableRow dateRow;
+	private TableRow mileAgeRow;
+	private TableRow priceRow;
+	private TableRow totalCostsRow;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,53 +53,36 @@ public class FillUp extends Activity {
 		priceRow = (TableRow) findViewById(R.id.fillup_price_row);
 		totalCostsRow = (TableRow) findViewById(R.id.fillup_amount_row);
 
-		homeButton = (ImageButton) findViewById(R.id.fillUp_HomeButton);
-		homeButton.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(FillUp.this, Dashboard.class);
-				startActivityForResult(intent, Values.QUIT_APPLICATION);
-				quitApplication();
-			}
-		});
-
-		searchButton = (ImageButton) findViewById(R.id.fillUp_SearchButton);
-		searchButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-			}
-		});
-
 		dateText = (EditText) findViewById(R.id.fillup_date_text);
-		dateText.setText(new SimpleDateFormat(getString(R.string.datePattern)).format(new Date(System
-				.currentTimeMillis())));
-		dateText.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				showDialog(DATE_TIME_PICKER_DIALOG);
-			}
-		});
-
 		mileAgeText = (EditText) findViewById(R.id.fillup_mileage_text);
 		priceText = (EditText) findViewById(R.id.fillup_price_text);
 		totalCostsText = (EditText) findViewById(R.id.fillup_amount_text);
 		commentText = (EditText) findViewById(R.id.fillup_comment_text);
 		locationText = (EditText) findViewById(R.id.fillup_location_text);
 
-		saveButton = (Button) findViewById(R.id.fillup_save_button);
-		saveButton.setOnClickListener(new View.OnClickListener() {
+		dateText.setText(new SimpleDateFormat(getString(R.string.datePattern)).format(new Date(System
+				.currentTimeMillis())));
+	}
 
-			@Override
-			public void onClick(View v) {
-				if (saveData()) {
-					FillUp.this.finish();
-				} else {
-					showDialog(ERROR_DIALOG);
-				}
-			}
-		});
+	public final void onClickHome(final View view) {
+		startActivityForResult(new Intent(this, Dashboard.class), Values.QUIT_APPLICATION);
+		closeActivities();
+	}
+
+	public final void onClickSearch(final View view) {
+
+	}
+
+	public final void onClickDate(final View view) {
+		showDialog(DATE_TIME_PICKER_DIALOG);
+	}
+
+	public final void onClickSave(final View view) {
+		if (saveData()) {
+			FillUp.this.finish();
+		} else {
+			showDialog(ERROR_DIALOG);
+		}
 	}
 
 	@Override
@@ -116,7 +92,7 @@ public class FillUp extends Activity {
 		switch (resultCode) {
 		case Values.QUIT_APPLICATION:
 			if (data != null && data.getExtras().getInt(Values.QUIT_APP_RESULT) == Values.QUIT_APPLICATION) {
-				quitApplication();
+				closeActivities();
 			}
 			break;
 		default:
@@ -144,7 +120,7 @@ public class FillUp extends Activity {
 
 		switch (item.getItemId()) {
 		case 1:
-			quitApplication();
+			closeActivities();
 			break;
 		default:
 			break;
@@ -200,7 +176,7 @@ public class FillUp extends Activity {
 
 		fuel.setLastDistance(DAOUtils.getLastDistance(this));
 
-		FuelLogDAO.getInstancte(this).createFuelData(fuel);
+		FuelLogDAO.getInstance(this).createFuelData(fuel);
 		return true;
 	}
 
@@ -246,7 +222,7 @@ public class FillUp extends Activity {
 		return builder.create();
 	}
 
-	private void quitApplication() {
+	private void closeActivities() {
 		Intent quitApplication = new Intent();
 		quitApplication.putExtra(Values.QUIT_APP_RESULT, Values.QUIT_APPLICATION);
 		setResult(Values.QUIT_APPLICATION, quitApplication);

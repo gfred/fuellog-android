@@ -32,10 +32,13 @@
 
     <string name="datePattern">dd.MM.yyyy</string>   
       
-	<string name="dashboard_new_fill_up">Tanken</string>
-	<string name="dashboard_history">Tank Verlauf</string>
-	<string name="dashboard_statistics">Statistik</string>
-	<string name="dashboard_preferences">Einstellungen</string>
+	<string name="dashboard_new_fill_up">Fuel</string>
+	<string name="dashboard_history">Fuel History</string>
+	<string name="dashboard_statistics">Statistics</string>
+	<string name="dashboard_preferences">Preferences</string>
+	<string name="dashboard_total">Total:</string>
+	<string name="dashboard_last_fill_up">Last Fuel:</string>
+	<string name="dashboard_no_fill_up">Not yet filled</string>
 			
 	<string name="fillup_date">Datum:</string>
 	<string name="fillup_mileage">Kilometerstand:</string>

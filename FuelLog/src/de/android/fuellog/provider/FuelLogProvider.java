@@ -176,7 +176,7 @@ public class FuelLogProvider extends ContentProvider {
 				break;
 			}
 		} catch (Exception e) {
-			Log.e(TAG, "Insert Exception", e);
+			Log.e(TAG, "Insert Exception: " + values.toString(), e);
 		} finally {
 			dbConnection.endTransaction();
 		}

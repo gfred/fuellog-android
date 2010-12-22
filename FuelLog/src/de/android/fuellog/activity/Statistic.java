@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import de.android.fuellog.R;
 import de.android.fuellog.util.Values;
 
@@ -15,40 +14,23 @@ public class Statistic extends Activity {
 	private static final String TAG = "de.android.fuellog.activity.Statistic";
 	private static final boolean DEBUG = false;
 
-	private ImageButton homeButton = null;
-	private ImageButton searchButton = null;
-	private ImageButton fillUpButton = null;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_statistics);
-		homeButton = (ImageButton) findViewById(R.id.statistic_HomeButton);
-		homeButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(Statistic.this, Dashboard.class);
-				startActivityForResult(intent, Values.QUIT_APPLICATION);
-				quitApplication();
-			}
-		});
+	}
 
-		searchButton = (ImageButton) findViewById(R.id.statistic_SearchButton);
-		searchButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
+	public final void onClickHome(final View view) {
+		startActivityForResult(new Intent(this, Dashboard.class), Values.QUIT_APPLICATION);
+		closeActivities();
+	}
 
-			}
-		});
+	public final void onClickSearch(final View view) {
+		Log.d(TAG, "not implemented yet");
+	}
 
-		fillUpButton = (ImageButton) findViewById(R.id.statistic_AddFuelButton);
-		fillUpButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(Statistic.this, FillUp.class);
-				startActivityForResult(intent, Values.QUIT_APPLICATION);
-			}
-		});
+	public final void onClickFillUp(final View view) {
+		startActivityForResult(new Intent(this, FillUp.class), Values.QUIT_APPLICATION);
 	}
 
 	@Override
@@ -58,7 +40,7 @@ public class Statistic extends Activity {
 		switch (resultCode) {
 		case Values.QUIT_APPLICATION:
 			if (data != null && data.getExtras().getInt(Values.QUIT_APP_RESULT) == Values.QUIT_APPLICATION) {
-				quitApplication();
+				closeActivities();
 			}
 			break;
 		default:
@@ -86,7 +68,7 @@ public class Statistic extends Activity {
 
 		switch (item.getItemId()) {
 		case 1:
-			quitApplication();
+			closeActivities();
 			break;
 		default:
 			break;
@@ -95,7 +77,7 @@ public class Statistic extends Activity {
 		return super.onMenuItemSelected(featureId, item);
 	}
 
-	private void quitApplication() {
+	private void closeActivities() {
 		Intent quitApplication = new Intent();
 		quitApplication.putExtra(Values.QUIT_APP_RESULT, Values.QUIT_APPLICATION);
 		setResult(Values.QUIT_APPLICATION, quitApplication);

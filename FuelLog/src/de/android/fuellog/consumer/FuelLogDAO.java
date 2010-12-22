@@ -25,15 +25,16 @@ public class FuelLogDAO {
 
 	public static final Uri FUEL_DATA_URI = Uri.parse("content://" + FuelLogProvider.AUTHORITY + "/"
 			+ FuelLogProvider.FuelContent.CONTENT_PATH);
-
 	public static final Uri PREFERENCES_URI = Uri.parse("content://" + FuelLogProvider.AUTHORITY + "/"
 			+ FuelLogProvider.PreferencesContent.CONTENT_PATH);
 	public static final Uri CAR_DATA_URI = Uri.parse("content://" + FuelLogProvider.AUTHORITY + "/"
 			+ FuelLogProvider.CarContent.CONTENT_PATH);
 
-	private static FuelLogDAO instance = null;
-	private static Context ctx = null;
-	private static ContentResolver resolver = null;
+	private static FuelLogDAO instance;
+	private static Context ctx;
+	private static ContentResolver resolver;
+
+	// private PreferencesData preferences;
 
 	private HashMap<Long, FuelData> fuelCache = new HashMap<Long, FuelData>();
 	private HashMap<Long, PreferencesData> preferencesCache = new HashMap<Long, PreferencesData>();
@@ -42,7 +43,7 @@ public class FuelLogDAO {
 	private FuelLogDAO() {
 	}
 
-	public static FuelLogDAO getInstancte(final Context ctx) {
+	public static FuelLogDAO getInstance(final Context ctx) {
 		if (instance == null) {
 			FuelLogDAO.ctx = ctx;
 			FuelLogDAO.resolver = ctx.getContentResolver();
@@ -70,12 +71,12 @@ public class FuelLogDAO {
 			fuelData.setLastDistance(cursor.getDouble(cursor.getColumnIndex(Fuel.LAST_DISTANCE)));
 			fuelData.setLocation(cursor.getString(cursor.getColumnIndex(Fuel.LOCATION)));
 			fuelData.setPicturePath(cursor.getString(cursor.getColumnIndex(Fuel.PICTURE_PATH)));
-			fuelData.setCarId(cursor.getInt(cursor.getColumnIndex(Fuel.CAR_ID)));
+			fuelData.setCarId(cursor.getLong(cursor.getColumnIndex(Fuel.CAR_ID)));
 
 			if (!cursor.isClosed()) {
 				cursor.close();
 			}
-
+			// fuelData = DataConverter.getFuelDataForUi(fuelData, preferences.getUnit());
 			fuelCache.put(id, fuelData);
 
 			return fuelData;
@@ -109,6 +110,7 @@ public class FuelLogDAO {
 			preferences.setCurrency(cursor.getInt(cursor.getColumnIndex(Preferences.CURRENCY)));
 			preferences.setFirstDistance(cursor.getDouble(cursor.getColumnIndex(Preferences.FIRST_DISTANCE)));
 			preferences.setUnit(cursor.getInt(cursor.getColumnIndex(Preferences.UNIT)));
+			preferences.setDatePattern(cursor.getString(cursor.getColumnIndex(Preferences.DATEPATTERN)));
 
 			if (!cursor.isClosed()) {
 				cursor.close();
@@ -214,8 +216,12 @@ public class FuelLogDAO {
 	}
 
 	public void createFuelData(final FuelData fuelData) {
-		Uri fuelUri = ContentUris.withAppendedId(FUEL_DATA_URI, fuelData.getId());
-		ctx.getContentResolver().insert(fuelUri, getFuelDataAsContentValues(fuelData));
+		if (fuelData.getId() != null) {
+			Uri fuelUri = ContentUris.withAppendedId(FUEL_DATA_URI, fuelData.getId());
+			ctx.getContentResolver().insert(fuelUri, getFuelDataAsContentValues(fuelData));
+		} else {
+			ctx.getContentResolver().insert(FUEL_DATA_URI, getFuelDataAsContentValues(fuelData));
+		}
 		fuelCache.put(fuelData.getId(), fuelData);
 	}
 
@@ -238,6 +244,8 @@ public class FuelLogDAO {
 	private ContentValues getFuelDataAsContentValues(FuelData fuelData) {
 		ContentValues values = new ContentValues();
 
+		// fuelData = DataConverter.getFuelDataForStorage(fuelData, preferences.getUnit());
+
 		values.put(Fuel.ID, fuelData.getId());
 		values.put(Fuel.AMOUNT_COSTS, fuelData.getAmountCosts());
 		values.put(Fuel.CAR_ID, fuelData.getCarId());
@@ -259,7 +267,7 @@ public class FuelLogDAO {
 		values.put(Preferences.CURRENCY, preferencesData.getCurrency());
 		values.put(Preferences.FIRST_DISTANCE, preferencesData.getFirstDistance());
 		values.put(Preferences.UNIT, preferencesData.getUnit());
-
+		values.put(Preferences.DATEPATTERN, preferencesData.getDatePattern());
 		return values;
 	}
 
@@ -273,5 +281,14 @@ public class FuelLogDAO {
 		fuelCache.clear();
 		preferencesCache.clear();
 		carCache.clear();
+	}
+
+	public PreferencesData getPreferences() {
+		// return this.preferences;
+		return null;
+	}
+
+	public void setPreferences(PreferencesData preferences) {
+		// this.preferences = preferences;
 	}
 }

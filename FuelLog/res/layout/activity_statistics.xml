@@ -22,6 +22,7 @@
 	    	android:layout_height="fill_parent"	    	
 	    	android:background="@drawable/topbuttonbackground"
 	    	android:src="@drawable/topbarhomebutton"
+	    	android:onClick="onClickHome"
 			/>
 		<ImageView 
 			style="@style/TitleBarSeparator" 
@@ -52,6 +53,7 @@
 	    	android:layout_height="fill_parent"	    	
 	    	android:background="@drawable/topbuttonbackground"
 	    	android:src="@drawable/addtop"
+	    	android:onClick="onClickFillUp"
 			/>
 		<ImageView 
 			style="@style/TitleBarSeparator" 
@@ -62,6 +64,7 @@
 	    	android:layout_height="fill_parent"	    	
 	    	android:background="@drawable/topbuttonbackground"
 	    	android:src="@drawable/topbarsearchbutton"
+	    	android:onClick="onClickSearch"
 			/>
 	</LinearLayout>
 	

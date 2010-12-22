@@ -1,11 +1,11 @@
 package de.android.fuellog.model;
 
 public class PreferencesData {
-
 	private long id;
 	private Double firstDistance;
 	private Integer currency;
 	private Integer unit;
+	private String datePattern;
 
 	public long getId() {
 		return this.id;
@@ -39,4 +39,11 @@ public class PreferencesData {
 		this.unit = unit;
 	}
 
+	public String getDatePattern() {
+		return this.datePattern;
+	}
+
+	public void setDatePattern(String datePattern) {
+		this.datePattern = datePattern;
+	}
 }

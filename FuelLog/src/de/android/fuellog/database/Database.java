@@ -12,7 +12,7 @@ public class Database extends SQLiteOpenHelper {
 	private static final Boolean DEBUG = false;
 
 	private static final String DATABASE_NAME = "fuellog.db";
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 
 	public Database(Context ctx) {
 		super(ctx, DATABASE_NAME, null, DATABASE_VERSION);

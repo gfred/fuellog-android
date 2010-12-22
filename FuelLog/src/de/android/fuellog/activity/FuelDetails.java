@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import de.android.fuellog.R;
 import de.android.fuellog.util.Values;
 
@@ -17,6 +18,19 @@ public class FuelDetails extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_fillup_details);
+	}
+
+	public final void onClickHome(final View view) {
+		startActivityForResult(new Intent(this, Dashboard.class), Values.QUIT_APPLICATION);
+		closeActivity();
+	}
+
+	public final void onClickFillUp(final View view) {
+		startActivityForResult(new Intent(this, FillUp.class), Values.QUIT_APPLICATION);
+	}
+
+	public final void onClickSearch(final View view) {
+
 	}
 
 	@Override
@@ -39,7 +53,7 @@ public class FuelDetails extends Activity {
 
 		switch (item.getItemId()) {
 		case 1:
-			quitApplication();
+			closeActivity();
 			break;
 		default:
 			break;
@@ -48,7 +62,7 @@ public class FuelDetails extends Activity {
 		return super.onMenuItemSelected(featureId, item);
 	}
 
-	private void quitApplication() {
+	private void closeActivity() {
 		Intent quitApplication = new Intent();
 		quitApplication.putExtra(Values.QUIT_APP_RESULT, Values.QUIT_APPLICATION);
 		setResult(Values.QUIT_APPLICATION, quitApplication);
@@ -62,7 +76,7 @@ public class FuelDetails extends Activity {
 		switch (resultCode) {
 		case Values.QUIT_APPLICATION:
 			if (data != null && data.getExtras().getInt(Values.QUIT_APP_RESULT) == Values.QUIT_APPLICATION) {
-				quitApplication();
+				closeActivity();
 			}
 			break;
 		default:

@@ -44,6 +44,7 @@
 	    	android:layout_height="fill_parent"	    	
 	    	android:background="@drawable/topbuttonbackground"
 	    	android:src="@drawable/topbarsearchbutton"
+	    	android:onClick="onClickSearch"
 			/>
 	</LinearLayout>
 	
@@ -70,6 +71,7 @@
 			android:textStyle="bold"	
 			android:background="#F07818"
 			android:layout_margin="5dp"
+			android:onClick="onClickFillUp"
 		/>
 		
 		<Button
@@ -86,6 +88,7 @@
 			android:textStyle="bold"	
 			android:background="#F0A830"	
 			android:layout_margin="5dp"	
+			android:onClick="onClickHistory"
 		/>
 			
 	</LinearLayout>
@@ -112,6 +115,8 @@
 			android:textStyle="bold"	
 			android:background="#FCEBB6"
 			android:layout_margin="5dp"		
+			android:onClick="onClickStatistics"
+			android:visibility="invisible"
 		/>
 		
 		<Button
@@ -128,6 +133,7 @@
 			android:textStyle="bold"	
 			android:background="#5E412F"
 			android:layout_margin="5dp"
+			android:onClick="onClickPreferences"
 		/>
 	
 	</LinearLayout>	
@@ -147,9 +153,10 @@
 	    	android:layout_gravity="center_vertical"
 	    	android:gravity="center_vertical"
 	    	android:textSize="20dp" 
+	    	android:paddingLeft="6dp"
 	    	android:textColor="@color/text"
 	    	android:textStyle="bold"
-	    	android:text="Total:"
+	    	android:text="@string/dashboard_total"
 		/>
 	
 	</LinearLayout>
@@ -164,15 +171,16 @@
 	>
 				
 		<TextView
-			android:id="@+id/last_fillup_date_text"  
+			android:id="@+id/dashboard_last_fillup_date_text"  
 	    	android:layout_width="fill_parent" 
 	    	android:layout_height="wrap_content"
 			android:layout_gravity="center_vertical"
 			android:gravity="center_vertical"
 	    	android:textSize="20dp"
+	    	android:paddingLeft="6dp"
 	    	android:textColor="@color/text"
 	    	android:textStyle="bold"
-	    	android:text="Last Fill Up Date:"
+	    	android:text="@string/dashboard_last_fill_up"
 		/>	
 	
 	</LinearLayout>

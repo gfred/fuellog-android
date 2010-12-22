@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class FuelData {
 
-	private long id;
+	private Long id;
 	private Date date;
 	private Double lastDistance;
 	private Double currentDistance;
@@ -16,21 +16,21 @@ public class FuelData {
 	private String comment;
 	private String location;
 	private String picturePath;
-	private long carId;
+	private Long carId;
 
-	public long getCarId() {
+	public Long getCarId() {
 		return this.carId;
 	}
 
-	public void setCarId(long carId) {
+	public void setCarId(Long carId) {
 		this.carId = carId;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

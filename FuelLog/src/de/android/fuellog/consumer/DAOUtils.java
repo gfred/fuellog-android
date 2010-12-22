@@ -7,7 +7,7 @@ import de.android.fuellog.model.PreferencesData;
 public class DAOUtils {
 
 	public static Double getLastDistance(Context ctx) {
-		FuelLogDAO dao = FuelLogDAO.getInstancte(ctx);
+		FuelLogDAO dao = FuelLogDAO.getInstance(ctx);
 		FuelData tmp = null;
 
 		for (FuelData fuel : dao.getAllFuelData()) {
