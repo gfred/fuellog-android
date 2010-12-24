@@ -65,7 +65,7 @@ public class FillUp extends Activity {
 	}
 
 	public final void onClickHome(final View view) {
-		startActivityForResult(new Intent(this, Dashboard.class), Values.QUIT_APPLICATION);
+		startActivityForResult(new Intent(this, Dashboard.class), Values.QUIT_APPLICATION_CODE);
 		closeActivities();
 	}
 
@@ -90,8 +90,8 @@ public class FillUp extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 
 		switch (resultCode) {
-		case Values.QUIT_APPLICATION:
-			if (data != null && data.getExtras().getInt(Values.QUIT_APP_RESULT) == Values.QUIT_APPLICATION) {
+		case Values.QUIT_APPLICATION_CODE:
+			if (data != null && data.getExtras().getInt(Values.QUIT_APP_RESULT) == Values.QUIT_APPLICATION_CODE) {
 				closeActivities();
 			}
 			break;
@@ -224,8 +224,8 @@ public class FillUp extends Activity {
 
 	private void closeActivities() {
 		Intent quitApplication = new Intent();
-		quitApplication.putExtra(Values.QUIT_APP_RESULT, Values.QUIT_APPLICATION);
-		setResult(Values.QUIT_APPLICATION, quitApplication);
+		quitApplication.putExtra(Values.QUIT_APP_RESULT, Values.QUIT_APPLICATION_CODE);
+		setResult(Values.QUIT_APPLICATION_CODE, quitApplication);
 		finish();
 	}
 }

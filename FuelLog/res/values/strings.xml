@@ -25,10 +25,34 @@
 <string name="menu_settings">Preferences</string>
     
     <string name="ok">Ok</string>
-    <string name="cancel">Abbrechen</string>
-    <string name="yes">Ja</string>
-    <string name="no">Nein</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="notset">Nicht Gesetzt!</string>
+
+	<string name="first_start_msg">... some senseless stuff...</string>
+	<string name="first_start_title">Welcome to Fuel Log</string>
+	
+	<string name="no_preferences_msg">Please enter your start distance in the preferences.\n\nDo you want to enter the start distance now?</string>
+	<string name="no_preferences_title">No start distance set!</string>
+
+	<string name="preferences_title_mandatory">Mandatory Preferences</string>
+	<string name="preferences_current_distance_key">distance</string>
+	<string name="preferences_current_distance">Current Distance</string>
+	<string name="preferences_current_distance_desc">Enter the current driven distance of your car</string>
+	<string name="preferences_title_ui">Units and UI Preferences</string>
+	<string name="preferences_date_pattern_key">date</string>
+	<string name="preferences_date_pattern">Date Pattern</string>
+	<string name="preferences_date_pattern_desc">The default pattern is: dd.MM.yyyy</string>
+	<string name="preferences_currency_key">currency</string>
+	<string name="preferences_currency">Currency</string>
+	<string name="preferences_currency_desc">The default value is: €</string>
+	<string name="preferences_measuringunit_key">measure</string>
+	<string name="preferences_measuringunit">Measuring Unit</string>
+	<string name="preferences_measuringunit_desc">The default value is: Kilometer</string>
+	<string name="preferences_unit_of_volume_key">volume</string>
+	<string name="preferences_unit_of_volume">Unit of Volume</string>
+	<string name="preferences_unit_of_volume_desc">The default value is: Liter</string>
 
     <string name="datePattern">dd.MM.yyyy</string>   
       

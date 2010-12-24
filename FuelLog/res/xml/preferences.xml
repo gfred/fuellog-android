@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-  xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory 
+		android:title="@string/preferences_title_mandatory" 
+		android:key="mainpref">
+		<EditTextPreference 
+			android:title="@string/preferences_current_distance" 
+			android:summary="@string/preferences_current_distance_desc" 
+			android:key="@string/preferences_current_distance_key" android:defaultValue="0"/>
+	
 
+</PreferenceCategory>
 
-
-<Preference android:key="volume" android:title="Volume"></Preference>
-<Preference android:key="distance" android:title="Distance"></Preference>
-<Preference android:key="money" android:title="Money"></Preference>
-<Preference android:key="statistic" android:title="Statistic"></Preference>
+	<PreferenceCategory 
+		android:title="@string/preferences_title_ui" 
+		android:key="uipref">
+		<EditTextPreference 
+			android:title="@string/preferences_date_pattern" 
+			android:summary="@string/preferences_date_pattern_desc" 
+			android:key="@string/preferences_date_pattern_key" android:defaultValue="dd.MM.yyyy"/>
+		<ListPreference 
+			android:summary="@string/preferences_currency_desc" 
+			android:title="@string/preferences_currency" 
+			android:entries="@array/currencyList" 
+			android:entryValues="@array/currencyValuesList" 
+			android:key="@string/preferences_currency_key" 
+			android:defaultValue="euro"/>
+		<ListPreference 
+			android:summary="@string/preferences_measuringunit_desc" 
+			android:title="@string/preferences_measuringunit"
+			android:entries="@array/measureList" 
+			android:entryValues="@array/measureValuesList" 
+			android:key="@string/preferences_measuringunit_key" 
+			android:defaultValue="km"/>
+		<ListPreference 
+			android:summary="@string/preferences_unit_of_volume_desc" 
+			android:title="@string/preferences_unit_of_volume" 
+			android:entries="@array/volumeUnitList" 
+			android:entryValues="@array/volumeUnitValuesList" 
+			android:key="@string/preferences_unit_of_volume_key" 
+			android:defaultValue="liter"/>
+	</PreferenceCategory>
 </PreferenceScreen>

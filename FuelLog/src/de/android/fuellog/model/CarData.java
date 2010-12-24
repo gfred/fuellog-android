@@ -1,32 +1,32 @@
 package de.android.fuellog.model;
 
 public class CarData {
-	private long id;
-	private String name;
-	private String licenseNo;
+    private Long id;
+    private String name;
+    private String licenseNo;
 
-	public long getId() {
-		return this.id;
-	}
+    public Long getId() {
+        return this.id;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return this.name;
-	}
+    public String getName() {
+        return this.name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getLicenseNo() {
-		return this.licenseNo;
-	}
+    public String getLicenseNo() {
+        return this.licenseNo;
+    }
 
-	public void setLicenseNo(String licenseNo) {
-		this.licenseNo = licenseNo;
-	}
+    public void setLicenseNo(String licenseNo) {
+        this.licenseNo = licenseNo;
+    }
 
 }

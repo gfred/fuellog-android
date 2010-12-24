@@ -10,6 +10,5 @@
 	<color name="top_separator">#ffffff</color>
 	<color name="top_buttonSelectedBackground">#d9b614</color>
 	<color name="bottom_background">#dddddd</color>
-	<color name="divider_color">#ffffff</color>
-	
+	<color name="divider_color">#ffffff</color>	
 </resources>

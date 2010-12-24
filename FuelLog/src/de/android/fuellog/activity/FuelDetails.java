@@ -21,12 +21,12 @@ public class FuelDetails extends Activity {
 	}
 
 	public final void onClickHome(final View view) {
-		startActivityForResult(new Intent(this, Dashboard.class), Values.QUIT_APPLICATION);
+		startActivityForResult(new Intent(this, Dashboard.class), Values.QUIT_APPLICATION_CODE);
 		closeActivity();
 	}
 
 	public final void onClickFillUp(final View view) {
-		startActivityForResult(new Intent(this, FillUp.class), Values.QUIT_APPLICATION);
+		startActivityForResult(new Intent(this, FillUp.class), Values.QUIT_APPLICATION_CODE);
 	}
 
 	public final void onClickSearch(final View view) {
@@ -64,8 +64,8 @@ public class FuelDetails extends Activity {
 
 	private void closeActivity() {
 		Intent quitApplication = new Intent();
-		quitApplication.putExtra(Values.QUIT_APP_RESULT, Values.QUIT_APPLICATION);
-		setResult(Values.QUIT_APPLICATION, quitApplication);
+		quitApplication.putExtra(Values.QUIT_APP_RESULT, Values.QUIT_APPLICATION_CODE);
+		setResult(Values.QUIT_APPLICATION_CODE, quitApplication);
 		finish();
 	}
 
@@ -74,8 +74,8 @@ public class FuelDetails extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 
 		switch (resultCode) {
-		case Values.QUIT_APPLICATION:
-			if (data != null && data.getExtras().getInt(Values.QUIT_APP_RESULT) == Values.QUIT_APPLICATION) {
+		case Values.QUIT_APPLICATION_CODE:
+			if (data != null && data.getExtras().getInt(Values.QUIT_APP_RESULT) == Values.QUIT_APPLICATION_CODE) {
 				closeActivity();
 			}
 			break;

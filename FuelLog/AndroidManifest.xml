@@ -34,12 +34,18 @@
 		<activity android:name=".activity.CarSelection"
                   android:theme="@style/Theme"
                   android:screenOrientation="portrait">
-        </activity>                     
+        </activity>   
+        
+		<activity android:name=".activity.Preferences"
+                  android:theme="@style/Theme"
+                  android:screenOrientation="portrait">
+        </activity>                  
 
 	    <provider android:name="de.android.fuellog.provider.FuelLogProvider" 
     		android:authorities="de.android.fuellog.provider" />
 
-    </application>
+    
+</application>
 
 <uses-sdk android:targetSdkVersion="7" android:minSdkVersion="7"></uses-sdk>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
