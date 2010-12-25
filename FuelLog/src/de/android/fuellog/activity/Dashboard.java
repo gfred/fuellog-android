@@ -20,6 +20,7 @@ import de.android.fuellog.activity.tasks.LogFileImporterTask;
 import de.android.fuellog.activity.tasks.PreferencesHelperTask;
 import de.android.fuellog.activity.view.Dialogs;
 import de.android.fuellog.consumer.FuelLogDAO;
+import de.android.fuellog.model.FuelData;
 import de.android.fuellog.model.PreferencesData;
 import de.android.fuellog.util.Calculations;
 import de.android.fuellog.util.Values;
@@ -212,29 +213,7 @@ public class Dashboard extends Activity {
             pattern = pref.getDatePattern();
         }
 
-        DecimalFormat formater;
-
-        switch (settings) {
-        case Values.DOLLAR_LITER_KM:
-        case Values.DOLLAR_LITER_MILES:
-        case Values.DOLLAR_UKGALLONS_KM:
-        case Values.DOLLAR_UKGALLONS_MILES:
-        case Values.DOLLAR_USGALLONS_KM:
-        case Values.DOLLAR_USGALLONS_MILES:
-            formater = new DecimalFormat("#0.00 $");
-            break;
-        case Values.POUNDS_LITER_KM:
-        case Values.POUNDS_LITER_MILES:
-        case Values.POUNDS_UKGALLONS_KM:
-        case Values.POUNDS_UKGALLONS_MILES:
-        case Values.POUNDS_USGALLONS_KM:
-        case Values.POUNDS_USGALLONS_MILES:
-            formater = new DecimalFormat("#0.00 £");
-            break;
-        default:
-            formater = new DecimalFormat("#0.00 €");
-            break;
-        }
+        DecimalFormat formater = new DecimalFormat("#0.00 " + FuelData.currencyUnit);
 
         totalCostText.setText(getString(R.string.dashboard_total) + " "
                 + formater.format(Calculations.getTotalCosts(this)));

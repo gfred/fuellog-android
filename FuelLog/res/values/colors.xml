@@ -10,5 +10,9 @@
 	<color name="top_separator">#ffffff</color>
 	<color name="top_buttonSelectedBackground">#d9b614</color>
 	<color name="bottom_background">#dddddd</color>
-	<color name="divider_color">#ffffff</color>	
+	<color name="divider_color">#5E412F</color>	
+	<color name="statistics_bgcolor">#5E412F</color>
+	<color name="statistics_bgcolor1">#F07818</color>
+	<color name="statistics_bgcolor2">#FCEBB6</color>
+	<color name="statistics_bgcolor3">#F0A830</color>
 </resources>

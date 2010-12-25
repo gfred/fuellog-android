@@ -67,4 +67,271 @@
 			/>
 	</LinearLayout>
 	
+<TableLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:stretchColumns="2"	
+		android:layout_marginTop="5sp"
+	>
+	
+		<TableRow android:paddingTop="3sp">
+        	<TextView
+        		style="@style/TextDetailsDescription"            	
+            	android:text="@string/fillup_date"
+            	/>
+			<TextView
+            	android:id="@+id/fillupdetails_date_text"
+            	style="@style/TextDetails"
+            /> 	
+        	<EditText
+        		style="@style/EditTextDetails"
+            	android:id="@+id/fillupdetails_date_edit"
+            	android:digits="0123456789."
+            	android:cursorVisible="false" 
+            	android:freezesText="true" 
+            	android:inputType="none"        	
+            	android:onClick="onClickDate"/>
+    	</TableRow>
+    	
+    	<TableRow 
+    		android:clipToPadding="false" 
+    		android:paddingTop="3sp"
+    		android:id="@+id/fillupdetails_distance"
+    		android:visibility="visible">
+        	<TextView
+				style="@style/TextDetailsDescription"
+            	android:text="@string/fillup_mileage"
+				/>
+			<TextView
+            	android:id="@+id/fillupdetails_mileage_text"
+            	style="@style/TextDetails"
+            /> 				
+    	</TableRow>	
+    	
+		<TableRow 
+    		android:clipToPadding="false" 
+    		android:paddingTop="3sp"
+    		android:id="@+id/fillupdetails_distance_start"
+    		android:visibility="gone">
+        	<TextView
+				style="@style/TextDetailsDescription"
+            	android:text="@string/fillupdetails_startdistance"
+				/>		
+			<EditText
+				style="@style/EditTextDetails"
+            	android:id="@+id/fillupdetails_distancestart_edit"
+            	android:digits="0123456789."
+            	android:inputType="number|numberSigned|numberDecimal"
+            />
+    	</TableRow>	
+    	
+		<TableRow 
+    		android:clipToPadding="false" 
+    		android:paddingTop="3sp"
+			android:id="@+id/fillupdetails_distance_end"
+    		android:visibility="gone">
+        	<TextView
+				style="@style/TextDetailsDescription"
+            	android:text="@string/fillupdetails_enddistance"
+				/>				
+			<EditText
+				style="@style/EditTextDetails"
+            	android:id="@+id/fillupdetails_distanceend_edit"
+            	android:digits="0123456789."
+            	android:inputType="number|numberSigned|numberDecimal"
+            />
+    	</TableRow>	    	
+
+    	<TableRow android:paddingTop="3sp">
+        	<TextView
+				style="@style/TextDetailsDescription"
+            	android:text="@string/fillup_price"
+            	/>
+			<TextView
+            	android:id="@+id/fillupdetails_price_text"
+            	style="@style/TextDetails"
+            />               	
+        	<EditText
+        		style="@style/EditTextDetails"
+            	android:id="@+id/fillupdetails_price_edit"
+            	android:digits="0123456789."
+            	android:inputType="number|numberSigned|numberDecimal"
+            	/>
+    	</TableRow>	
+
+    	<TableRow android:paddingTop="3sp">
+        	<TextView
+        		style="@style/TextDetailsDescription"            	
+            	android:text="@string/fillup_amount"
+            	/>
+			<TextView
+            	android:id="@+id/fillupdetails_amount_text"
+            	style="@style/TextDetails"
+            />            	
+        	<EditText
+        		style="@style/EditTextDetails"
+    			android:id="@+id/fillupdetails_amount_edit"
+            	android:digits="0123456789."
+            	android:inputType="number|numberSigned|numberDecimal"
+            />
+    	</TableRow>	
+    	
+		<TableRow 
+			android:paddingTop="3sp"
+			android:id="@+id/fillupdetails_volume_row"
+			>
+        	<TextView
+        		style="@style/TextDetailsDescription"            	
+            	android:text="@string/fillupdetails_volumefilledup"
+            	/>
+			<TextView
+            	android:id="@+id/fillupdetails_volume_text"
+            	style="@style/TextDetails"
+            />            	
+    	</TableRow>	
+    	
+		<TableRow android:paddingTop="3sp">
+        	<TextView
+        		style="@style/TextDetailsDescription"
+        		android:text="@string/fillup_comment"
+            	/>
+			<TextView
+            	android:id="@+id/fillupdetails_comment_text"
+            	style="@style/TextDetails"
+            />
+        	<EditText
+            	android:id="@+id/fillupdetails_comment_edit"
+            	android:maxLength="200"
+            	style="@style/EditTextDetails"	
+            />
+    	</TableRow>	
+    	    	
+		<TableRow android:paddingTop="3sp">
+        	<TextView
+        		style="@style/TextDetailsDescription"
+        		android:text="@string/fillup_location"
+            	/>
+            <TextView
+            	android:id="@+id/fillupdetails_location_text"
+            	style="@style/TextDetails"
+            />
+           	<EditText
+            	android:id="@+id/fillupdetails_location_edit"
+            	style="@style/EditTextDetails"
+			/>
+    	</TableRow>	
+	
+	</TableLayout>
+	
+	<LinearLayout 
+    	android:orientation="horizontal" 
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content"
+    	android:background="@color/statistics_bgcolor"
+    	android:layout_margin="3dp"
+    	android:padding="2dp"
+    	android:id="@+id/fillupdetails_statistics">
+    	
+		<TextView
+			style="@style/TextDetailsDescription"            	
+			android:text="@string/fillupdetails_statistics"
+			
+			android:textColor="@color/top_text"
+			android:textSize="18dp"
+			android:textStyle="bold"
+			android:gravity="center"
+			android:layout_height="fill_parent"
+			android:layout_width="wrap_content"
+			android:padding="10dp"            	
+		/>
+		
+		<TableLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:stretchColumns="1"	
+			android:visibility="visible"			
+		>    	
+    		<TableRow
+    			android:background="@color/statistics_bgcolor1"
+    			android:layout_margin="2dp">
+	        	<TextView
+	        		android:id="@+id/fillupdetails_stat1_text"
+	        		style="@style/TextDetailsDescription"	        		            	
+	        		android:gravity="center"
+	            	/>
+			</TableRow>
+			<TableRow
+			android:background="@color/statistics_bgcolor2"
+			android:layout_margin="2dp">
+				<TextView
+	            	android:id="@+id/fillupdetails_stat2_text"
+	            	style="@style/TextDetailsDescription"
+	            	android:gravity="center"
+	            />
+            </TableRow>
+			<TableRow
+			android:background="@color/statistics_bgcolor3"
+			android:layout_margin="2dp"> 	
+				<TextView
+	        		android:id="@+id/fillupdetails_stat3_text"
+	        		style="@style/TextDetailsDescription"           
+	        		android:gravity="center"	
+				/>
+    		</TableRow>
+		</TableLayout>
+	</LinearLayout>
+	
+
+	
+		<LinearLayout	
+		android:id="@+id/fillupdetails_buttom"	
+		android:layout_width="fill_parent"
+		android:layout_height="50dip"
+		android:layout_gravity="bottom"
+		android:gravity="center|bottom"
+		android:orientation="horizontal"
+		android:background="@color/bottom_background"
+		android:visibility="visible"
+		>
+
+		<Button
+		android:id="@+id/fillupdetails_save_button"
+		android:gravity="center"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@color/text"
+		android:text="@string/fillup_save"
+		android:layout_weight="1"
+		android:visibility="gone"
+		android:onClick="onClickSave"
+		/>
+		
+		<Button
+		android:id="@+id/fillupdetails_cancel_button"
+		android:gravity="center"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@color/text"
+		android:text="@string/cancel"
+		android:layout_weight="1"
+		android:visibility="gone"
+		android:onClick="onClickCancel"
+		/>
+		
+		<Button
+		android:id="@+id/fillupdetails_edit_button"
+		android:gravity="center"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@color/text"
+		android:text="@string/fillupdetails_edit"
+		android:layout_weight="2"
+		android:onClick="onClickEdit"
+		/>
+
+	</LinearLayout>
+
+
 </LinearLayout>

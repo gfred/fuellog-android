@@ -73,7 +73,8 @@
             	android:text="@string/fillup_date"
             	android:padding="3dip"
 				android:textColor="@color/text"
-            	android:textSize="16sp" android:layout_gravity="center_vertical"/>
+            	android:textSize="16sp" 
+            	android:layout_gravity="center_vertical"/>
         	<EditText
             	android:id="@+id/fillup_date_text"
             	android:textColor="@color/text"

@@ -10,6 +10,8 @@ public interface Values {
     String PREFERENCES_NAME = "fuellog.pref";
     String FIRST_RUN_PREF_NAME = "firstrun.pref";
 
+    String SELECTED_FUEL_DATA = "fueldata";
+
     int EURO_LITER_KM = 0;
     int EURO_LITER_MILES = 1;
     int EURO_USGALLONS_KM = 2;

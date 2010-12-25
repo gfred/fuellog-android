@@ -2,13 +2,26 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
+  android:layout_height="fill_parent"
+  android:orientation="vertical"
+  android:padding="5dp">
   
   <TextView
   	android:id="@+id/view_history_list_date"
   	android:textColor="@color/text"
-  	android:layout_width="wrap_content"
-  	android:layout_height="fill_parent"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:textSize="20dp"
+  	android:singleLine="true"
+  	android:textStyle="bold"
+  />
+  <TextView
+  	android:id="@+id/view_history_list_info"
+  	android:textColor="@color/text"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:textSize="16dp"
+  	android:singleLine="true"
   />
   
 </LinearLayout>

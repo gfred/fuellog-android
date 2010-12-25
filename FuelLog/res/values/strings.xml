@@ -74,4 +74,11 @@
 	<string name="fillup_takepicture">Tankbeleg Foto</string>
 	<string name="fillup_errordialog_title">Falsche Eingabe</string>
 	<string name="fillup_errordialog_msg">Falsche oder Fehlende Eingaben. Überprüfen Sie ihre Eingaben!</string>
+	
+	<string name="fillupdetails_edit">Edit</string>
+	<string name="fillupdetails_startdistance">Start Distance: </string>
+	<string name="fillupdetails_enddistance">End Distance:</string>
+	<string name="fillupdetails_drivendistance">Driven Distance:</string>
+	<string name="fillupdetails_volumefilledup">Total Volume:</string>
+	<string name="fillupdetails_statistics">Statistics</string>
 </resources>

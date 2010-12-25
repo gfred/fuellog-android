@@ -44,6 +44,14 @@ public class FuelLogDAO {
     private FuelLogDAO() {
     }
 
+    public static FuelLogDAO getInstance() {
+        if (instance == null) {
+            throw new IllegalStateException("Missing Context");
+        } else {
+            return instance;
+        }
+    }
+
     public static FuelLogDAO getInstance(final Context ctx) {
         if (instance == null) {
             FuelLogDAO.ctx = ctx;
