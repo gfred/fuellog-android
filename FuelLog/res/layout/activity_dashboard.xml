@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    
+	android:id="@+id/dashboardBackground"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/backgroundcolor"
+>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="45dip"
+		android:orientation="horizontal"
+		android:background="@color/top_background"
+		android:gravity="right"
+	>
+		<ImageView
+			android:layout_width="wrap_content"
+	 		android:layout_height="fill_parent"
+	 		android:src="@drawable/icon"
+	 		 />
+	 	<TextView
+			android:text="Fuel Log"
+	    	android:textColor="@color/top_text"
+	    	android:textSize="18sp"	    	
+	    	android:textStyle="bold"	    	
+	 		android:layout_width="0dp"
+	 		android:layout_weight="1" 
+	 		android:layout_height="fill_parent" 
+	 		android:layout_gravity="center" 
+	 		android:gravity="center_vertical"
+	 		android:paddingLeft="12dip"
+	 		android:paddingRight="12dip"
+	 		android:singleLine="true"
+			android:ellipsize="end"
+	 	/>
+
+		<ImageView 
+			style="@style/TitleBarSeparator" 
+			/>
+	    <ImageButton
+	   	 	android:id="@+id/dashboard_SearchButton"
+	    	android:layout_width="45dip" 
+	    	android:layout_height="fill_parent"	    	
+	    	android:background="@drawable/topbuttonbackground"
+	    	android:src="@drawable/topbarsearchbutton"
+	    	android:onClick="onClickSearch"
+			/>
+	</LinearLayout>
+	
+	
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:orientation="horizontal"
+		android:layout_margin="2dp"
+	>
+	
+		<Button
+			android:id="@+id/dashboard_fill_up_button" 
+			android:layout_width="fill_parent"
+			android:layout_height="120dp"
+			android:layout_weight="1"
+			android:layout_gravity="center_horizontal"								
+			android:gravity="center_horizontal"
+			android:paddingTop="25dp"
+			android:paddingBottom="25dp"			
+			android:text="@string/dashboard_new_fill_up"
+			android:textColor="@color/text"
+			android:textStyle="bold"	
+			android:background="#F07818"
+			android:layout_margin="5dp"
+			android:onClick="onClickFillUp"
+		/>
+		
+		<Button
+			android:id="@+id/dashboard_history_button"
+			android:layout_width="fill_parent"
+			android:layout_height="120dp"
+			android:layout_weight="1"
+			android:layout_gravity="center_horizontal"			
+			android:gravity="center_horizontal"
+			android:paddingTop="25dp"
+			android:paddingBottom="25dp" 			
+			android:text="@string/dashboard_history"
+			android:textColor="@color/text"
+			android:textStyle="bold"	
+			android:background="#F0A830"	
+			android:layout_margin="5dp"	
+			android:onClick="onClickHistory"
+		/>
+			
+	</LinearLayout>
+	
+	<LinearLayout		
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:orientation="horizontal"
+		android:layout_margin="2dp"
+	>
+	
+		<Button
+			android:id="@+id/dashboard_statistics_button"
+			android:layout_width="fill_parent"
+			android:layout_height="120dp"
+			android:layout_weight="1"
+			android:layout_gravity="center_horizontal"			
+			android:gravity="center_horizontal"
+			android:paddingTop="25dp"
+			android:paddingBottom="25dp" 			
+			android:text="@string/dashboard_statistics"
+			android:textColor="@color/text"
+			android:textStyle="bold"	
+			android:background="#FCEBB6"
+			android:layout_margin="5dp"		
+			android:onClick="onClickStatistics"
+			android:visibility="invisible"
+		/>
+		
+		<Button
+			android:id="@+id/dashboard_preferences_button"
+			android:layout_width="fill_parent"
+			android:layout_height="120dp"
+			android:layout_weight="1"
+			android:layout_gravity="center_horizontal"			
+			android:gravity="center_horizontal"
+			android:paddingTop="25dp"
+			android:paddingBottom="25dp" 			
+			android:text="@string/dashboard_preferences"
+			android:textColor="@color/text"
+			android:textStyle="bold"	
+			android:background="#5E412F"
+			android:layout_margin="5dp"
+			android:onClick="onClickPreferences"
+		/>
+	
+	</LinearLayout>	
+	
+	<LinearLayout
+		android:id="@+id/dashboard_total_money_layout"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:orientation="horizontal"
+	>
+				
+		<TextView
+			android:id="@+id/dashboard_total_money_text"  
+	    	android:layout_width="fill_parent" 
+	    	android:layout_height="wrap_content"
+	    	android:layout_gravity="center_vertical"
+	    	android:gravity="center_vertical"
+	    	android:textSize="20dp" 
+	    	android:paddingLeft="6dp"
+	    	android:textColor="@color/text"
+	    	android:textStyle="bold"
+	    	android:text="@string/dashboard_total"
+		/>
+	
+	</LinearLayout>
+	
+
+	<LinearLayout
+		android:id="@+id/last_fillup_date_layout"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:orientation="horizontal"
+	>
+				
+		<TextView
+			android:id="@+id/dashboard_last_fillup_date_text"  
+	    	android:layout_width="fill_parent" 
+	    	android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:gravity="center_vertical"
+	    	android:textSize="20dp"
+	    	android:paddingLeft="6dp"
+	    	android:textColor="@color/text"
+	    	android:textStyle="bold"
+	    	android:text="@string/dashboard_last_fill_up"
+		/>	
+	
+	</LinearLayout>
+	
+</LinearLayout>
