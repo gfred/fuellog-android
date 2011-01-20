@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>    
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/addFuelBackground"
     android:orientation="vertical"
@@ -6,6 +6,13 @@
     android:layout_height="fill_parent"
 	android:background="@drawable/backgroundcolor"
 >
+
+	<LinearLayout
+    	android:focusable="true" 
+    	android:focusableInTouchMode="true"
+    	android:layout_width="0px" 
+    	android:layout_height="0px"/>
+
 
 	<LinearLayout
 		android:layout_width="fill_parent"
@@ -112,6 +119,11 @@
 	            	android:onClick="onClickTime"
 	            	android:src="@drawable/clock"
 	            	style="@style/BookingButton"
+	            	android:scaleType="fitXY"
+	            	android:paddingTop="0dip"
+	            	android:paddingBottom="4dip"
+	            	android:paddingLeft="2dip"
+	            	android:paddingRight="2dip"
 	            />
             </LinearLayout>           
             
@@ -122,19 +134,20 @@
             >
   	        	<EditText
 	            	android:id="@+id/driverslogentryLocation"
-	            	android:maxLines="1" 
-	            	android:inputType="none"
+	            	android:lines="2" 
   	  				android:maxLength="200" 
       				android:layout_width="fill_parent"
       				android:layout_height="wrap_content" 
       				android:layout_weight="1"		
       				android:hint="@string/driverslogentry_location"		
       				android:onClick="onClickLocation"	 
+      				android:gravity="top"
 	            />	            
 	            <ImageButton
 	            	android:onClick="onClickLocation"
 	            	android:src="@drawable/location"
 					style="@style/BookingButton"
+					android:layout_gravity="center"
 	            />
             </LinearLayout> 
           
