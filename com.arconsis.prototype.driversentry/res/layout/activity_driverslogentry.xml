@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/addFuelBackground"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:background="@drawable/backgroundcolor"
+>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="45dip"
+		android:orientation="horizontal"
+		android:background="@color/top_background"
+		android:gravity="left"
+	>
+
+		<ImageButton
+	    	android:id="@+id/homeTopDriversLogEntry"
+	    	android:layout_width="45dip" 
+	    	android:layout_height="fill_parent"	
+	    	android:src="@drawable/topbarhomebutton"
+	    	android:background="@drawable/topbuttonbackground"
+	    	android:onClick="onClickTopHome"
+	    />
+	    <ImageView style="@style/TitleBarSeparator" />
+
+	 	<TextView
+			android:text="@string/driverslogentry_title"
+	    	android:textColor="@color/top_text"
+	    	android:textSize="18sp"	    	
+	    	android:textStyle="bold"	    	
+	 		android:layout_width="0dp"
+	 		android:layout_weight="1" 
+	 		android:layout_height="fill_parent" 
+	 		android:layout_gravity="center" 
+	 		android:gravity="center_vertical"
+	 		android:paddingLeft="12dip"
+	 		android:paddingRight="12dip"
+	 		android:singleLine="true"
+			android:ellipsize="end"
+        />
+        
+	    <ImageView style="@style/TitleBarSeparator" />
+	    <ImageButton
+	   	 	android:id="@+id/addTopDriversLogEntry"
+	    	android:layout_width="45dip" 
+	    	android:layout_height="fill_parent"	    	
+	    	android:background="@drawable/topbuttonbackground"
+	    	android:src="@drawable/topbaraddbutton"
+	    	android:onClick="onClickTopAdd"
+			/>
+	        
+	</LinearLayout>
+	
+	<ScrollView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	>	
+	
+	<LinearLayout
+        android:layout_height="fill_parent"
+      	android:layout_width="fill_parent"
+      	android:orientation="vertical"
+	>
+	
+			<TextView
+            	android:text="@string/driverslogentry_date"
+				style="@style/BookingDescriptions"
+            />
+            
+            <LinearLayout
+            	android:layout_height="wrap_content"
+            	android:layout_width="fill_parent"
+            	android:orientation="horizontal"
+            >
+  	        	<EditText
+	            	android:id="@+id/driverslogentryDate"
+	            	android:maxLines="1" 
+	            	android:inputType="none"
+	            	android:focusable="false"
+					android:paddingTop="1dip"
+  	  				android:maxLength="200" 
+      				android:layout_width="fill_parent"
+      				android:layout_height="wrap_content"
+  					android:layout_weight="1"  					 
+	            />	            
+	            <ImageButton
+	            	android:onClick="onClickDate"
+	            	android:src="@drawable/calendar"
+					style="@style/BookingButton"
+	            />
+            </LinearLayout>
+            
+            
+ 			<TextView
+            	android:text="@string/driverslogentry_time"
+				style="@style/BookingDescriptions"
+            />
+            
+            <LinearLayout
+            	android:layout_height="wrap_content"
+            	android:layout_width="fill_parent"
+            	android:orientation="horizontal"
+            >
+  	        	<EditText
+	            	android:id="@+id/driverslogentryTime"
+	            	android:maxLines="1" 
+	            	android:inputType="none"
+	            	android:focusable="false"
+  	  				android:maxLength="200" 
+      				android:layout_width="fill_parent"
+      				android:layout_height="wrap_content"
+  					android:layout_weight="1"  					 
+	            />	            
+	            <ImageButton
+	            	android:onClick="onClickTime"
+	            	android:src="@drawable/clock"
+	            	style="@style/BookingButton"
+	            />
+            </LinearLayout>           
+            
+   			<TextView
+            	android:text="@string/driverslogentry_location"
+				style="@style/BookingDescriptions"
+            />
+            
+            <LinearLayout
+            	android:layout_height="wrap_content"
+            	android:layout_width="fill_parent"
+            	android:orientation="horizontal"
+            >
+  	        	<EditText
+	            	android:id="@+id/riverslogentryLocation"
+	            	android:maxLines="1" 
+	            	android:inputType="none"
+	            	android:focusable="false"
+  	  				android:maxLength="200" 
+      				android:layout_width="fill_parent"
+      				android:layout_height="wrap_content" 
+      				android:layout_weight="1"					 
+	            />	            
+	            <ImageButton
+	            	android:onClick="onClickLocation"
+	            	android:src="@drawable/location"
+					style="@style/BookingButton"
+	            />
+            </LinearLayout> 
+            
+   			<TextView
+            	android:text="@string/driverslogentry_mileage"
+				style="@style/BookingDescriptions"
+            />
+            
+	       	<EditText
+	         	android:id="@+id/driverslogentryMileage"
+	         	android:maxLines="1" 
+	         	android:focusable="false"
+ 				android:maxLength="200" 
+ 				android:digits="0123456789."
+       			android:inputType="number|numberSigned|numberDecimal"
+  				android:layout_width="fill_parent"
+  				android:layout_height="wrap_content" 			
+				android:paddingRight="5dip"		
+				android:paddingLeft="1dip"
+	         />	            
+            
+          	<TextView
+            	android:text="@string/driverslogentry_comment"
+				style="@style/BookingDescriptions"
+            />
+            
+       		<EditText
+	            	android:id="@+id/driverslogentryComment"
+	            	android:maxLines="1" 
+	            	android:focusable="false"
+  	  				android:maxLength="200" 
+      				android:layout_width="fill_parent"
+      				android:layout_height="wrap_content" 			
+  					android:paddingRight="5dip"		
+  					android:paddingLeft="1dip"	 
+           	/>	            
+
+            
+            <LinearLayout
+            	android:layout_height="wrap_content"
+            	android:layout_width="fill_parent"
+            	android:orientation="horizontal"
+            	android:paddingLeft="1dip"
+            	android:paddingRight="1dip"
+            >
+	        	<TextView
+	            	android:text="@string/driverslogentry_user"
+ 					android:textColor="@color/text"
+      				android:textSize="15sp" 
+    				android:paddingLeft="3dp"
+    				android:paddingTop="2dp"
+    				android:layout_width="wrap_content"
+    				android:layout_height="wrap_content"
+					
+	            />
+	        	<TextView
+	            	android:id="@+id/driverslogentryUser"
+ 					android:textColor="@color/text"
+      				android:textSize="15sp" 
+    				android:paddingLeft="3dp"
+    				android:paddingTop="2dp"
+    				android:layout_width="fill_parent"
+    				android:layout_height="wrap_content"
+	            />
+            </LinearLayout> 
+            
+		</LinearLayout>
+		
+	</ScrollView>
+	
+	<LinearLayout		
+		android:layout_width="fill_parent"
+		android:layout_height="50dip"
+		android:layout_gravity="bottom"
+		android:gravity="center|bottom"
+		android:orientation="horizontal"
+		android:background="@color/bottom_background"
+	>
+
+		<Button
+			android:id="@+id/driverslogentryButtonCamera"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:minWidth="150dp"
+			android:text="@string/driverslogentry_camerabutton"
+			android:onClick="onClickTakePicture"
+		/>
+		
+		<Button
+			android:id="@+id/driverslogentryButtonSave"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:minWidth="150dp"
+			android:text="@string/driverslogentry_savebutton"
+			android:onClick="onClickSaveDriversLogEntry"
+		/>
+
+	</LinearLayout>
+
+</LinearLayout>

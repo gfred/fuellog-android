@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Fahrtenbuch-Prototype</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="notset">Nicht Gesetzt!</string>
+
+    <string name="datePattern">dd.MM.yyyy</string>
+    
+    <string name="account_label">Fleetmanager</string>
+    
+   
+    
+    <string name="menu_quit">Beenden</string>
+    <string name="menu_logoff">Abmelden</string>
+    
+    <string name="sdcard_error_title">SD Karten Fehler!</string>
+    <string name="sdcard_error_message">Es wurde keine SD Karte gefunden! Bitte einlegen oder mounten!</string>
+    
+    <string name="fuel_type_gasoline">Benzin</string>
+    <string name="fuel_type_diesel">Diesel</string>
+    <string name="fuel_type_premium">Premium</string>
+    <string name="fuel_type_electric">Elektrisch</string>
+    
+    <string name="contract_type_rent">Leihwagen</string>
+    <string name="contract_type_leasing">Leasing</string>
+    <string name="contract_type_buy">Gekauft</string>
+    
+    <string name="login_user">Benutzer:</string>
+    <string name="login_password">Passwort:</string>
+    <string name="login_button">Anmelden</string>
+    
+    <string name="login_failed_title">Anmeldung fehlgeschlagen!</string>
+    <string name="login_failed_message">Benutzer und Passwort Kombination stimmt nicht. Bitte erneut versuchen!</string>
+	<string name="login_authorize_message">Am Server Anmelden. Bitte warten...</string>
+
+	<string name="dashboard_masterdatabutton">Stammdaten</string>
+	<string name="dashboard_newbookingbutton">Neue Buchung</string>
+	<string name="dashboard_allbookingsbutton">Buchungen</string>
+	<string name="dashboard_alldocumentsbutton">Dokumente</string>
+	<string name="dashboard_changeUserTitle">Benutzer Wechseln</string>
+	<string name="dashboard_changeUserMessage">Wollen Sie den Benutzer wechseln und diesen Benutzer abmelden?</string>	
+	<string name="dashboard_load_data_message">Lade Daten. Bitte warten...</string>
+	
+	<string name="addbooking_title">Neue Buchung</string>
+	
+	<string name="addfuel_title">Tank Buchung</string>
+	<string name="addfuel_date">Datum:</string>
+	<string name="addfuel_time">Uhrzeit:</string>
+	<string name="addfuel_location">Ort:</string>
+	<string name="addfuel_mileage">Kilometerstand:</string>
+	<string name="addfuel_amount">Betrag:</string>
+	<string name="addfuel_comment">Kommentar:</string>
+	<string name="addfuel_savebutton">Buchung Anlegen</string>
+	<string name="addfuel_camerabutton">Foto Aufnehmen</string>
+	<string name="addfuel_user">Benutzer:</string>
+	
+	<string name="bookings_title">Buchungen</string>
+	
+	<string name="documents_title">Dokumente</string>
+	<string name="documents_last_changed">Letzte Änderung: </string>
+	
+	<string name="driverslogentry_title">Fahrtenbuchung</string>
+	<string name="driverslogentry_date">Datum:</string>
+	<string name="driverslogentry_time">Uhrzeit:</string>
+	<string name="driverslogentry_location">Ort:</string>
+	<string name="driverslogentry_comment">Beschreibung:</string>
+	<string name="driverslogentry_mileage">Kilometerstand:</string>
+	<string name="driverslogentry_user">Benutzer:</string>
+	<string name="driverslogentry_savebutton">Buchung Anlegen</string>
+	<string name="driverslogentry_camerabutton">Foto Aufnehmen</string>
+	
+	<string name="masterdata_title">Stammdaten</string>
+	<string name="masterdata_licno">Kennzeichen:</string>
+	<string name="masterdata_manufact">Hersteller:</string>
+	<string name="masterdata_modelname">Modell:</string>
+	<string name="masterdata_construction">Baujahr:</string>
+	<string name="masterdata_fueltype">Treibstofftyp:</string>
+	<string name="masterdata_contracttype">Vertragstyp:</string>
+	<string name="masterdata_description">Beschreibung:</string>
+	<string name="masterdata_entryDate">Eintrittsdatum:</string>
+	<string name="masterdata_terminationDate">Ablaufdatum:</string>
+	<string name="masterdata_changeCarButton">Standard Fahrzeug ändern</string>
+	<string name="masterdata_changeCarDialogTitle">Fahrzeug wählen</string>
+	
+</resources>

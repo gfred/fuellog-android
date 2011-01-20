@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/addFuelBackground"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:background="@drawable/backgroundcolor"
+>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="45dip"
+		android:orientation="horizontal"
+		android:background="@color/top_background"
+		android:gravity="left"
+	>
+
+		<ImageButton
+	    	android:id="@+id/homeTopAddFuel"
+	    	android:layout_width="45dip" 
+	    	android:layout_height="fill_parent"	
+	    	android:src="@drawable/topbarhomebutton"
+	    	android:background="@drawable/topbuttonbackground"
+	    	android:onClick="onClickTopHome"
+	    />
+	    <ImageView style="@style/TitleBarSeparator" />
+
+	 	<TextView
+			android:text="@string/addfuel_title"
+	    	android:textColor="@color/top_text"
+	    	android:textSize="18sp"	    	
+	    	android:textStyle="bold"	    	
+	 		android:layout_width="0dp"
+	 		android:layout_weight="1" 
+	 		android:layout_height="fill_parent" 
+	 		android:layout_gravity="center" 
+	 		android:gravity="center_vertical"
+	 		android:paddingLeft="12dip"
+	 		android:paddingRight="12dip"
+	 		android:singleLine="true"
+			android:ellipsize="end"
+        />
+        
+	    <ImageView style="@style/TitleBarSeparator" />
+	    <ImageButton
+	   	 	android:id="@+id/addTopAddFuel"
+	    	android:layout_width="45dip" 
+	    	android:layout_height="fill_parent"	    	
+	    	android:background="@drawable/topbuttonbackground"
+	    	android:src="@drawable/topbaraddbutton"
+	    	android:onClick="onClickTopAdd"
+			/>
+	        
+	</LinearLayout>
+		
+	<TableLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:stretchColumns="2"	
+	>
+	
+		<TableRow>
+        	<TextView
+            	android:layout_column="1"
+            	android:text="@string/addfuel_date"
+            	android:padding="3dip"
+				android:textColor="@color/text"
+            	android:textSize="16sp" 
+            />
+        	<TextView
+            	android:id="@+id/addFuelDate"
+            	android:gravity="left"
+            	android:padding="3dip"
+				android:textColor="@color/text"
+            	android:textSize="16sp" 
+            />
+    	</TableRow>
+    	
+    	<TableRow>
+        	<TextView
+            	android:layout_column="1"
+            	android:text="@string/addfuel_time"
+            	android:padding="3dip"
+				android:textColor="@color/text"
+            	android:textSize="16sp" 
+            />
+        	<TextView
+            	android:id="@+id/addFuelTime"
+            	android:gravity="left"
+            	android:padding="3dip"
+				android:textColor="@color/text"
+            	android:textSize="16sp" 
+            />
+    	</TableRow>
+
+    	<TableRow>
+        	<TextView
+            	android:layout_column="1"
+            	android:text="@string/addfuel_location"
+            	android:padding="3dip" 
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            />
+        	<TextView
+            	android:id="@+id/addFuelLocation"
+            	android:gravity="left"
+            	android:padding="3dip" 
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            />
+    	</TableRow>		
+	
+    	<TableRow>
+        	<TextView
+            	android:layout_column="1"
+            	android:text="@string/addfuel_mileage"
+            	android:padding="3dip"    
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            />
+			<EditText
+            	android:id="@+id/addFuelMileage"
+            	android:gravity="left"
+            	android:singleLine="true"
+            	android:digits="0123456789."
+            	android:inputType="number|numberSigned|numberDecimal"
+            />
+    	</TableRow>	
+
+    	<TableRow>
+        	<TextView
+            	android:layout_column="1"
+            	android:text="@string/addfuel_amount"
+            	android:padding="3dip"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            />
+        	<EditText
+            	android:id="@+id/addFuelAmount"
+            	android:gravity="left"
+            	android:singleLine="true"
+            	android:digits="0123456789."
+            	android:inputType="number|numberSigned|numberDecimal"
+            />
+    	</TableRow>	
+    	
+		<TableRow>
+        	<TextView
+            	android:layout_column="1"
+            	android:text="@string/addfuel_comment"
+            	android:padding="3dip"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            />
+        	<EditText
+            	android:id="@+id/addFuelComment"
+            	android:gravity="left"
+            	android:maxLength="200"
+            	android:maxLines="3"
+            />
+    	</TableRow>	
+    	
+		<TableRow>
+        	<TextView
+            	android:layout_column="1"
+            	android:text="@string/addfuel_user"
+            	android:padding="3dip"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            />
+        	<TextView
+            	android:id="@+id/addFuelUser"
+            	android:gravity="left"
+            	android:padding="3dip"
+            	android:textColor="@color/text"
+            	android:textSize="16sp" 
+            />
+    	</TableRow>	
+	
+	</TableLayout>
+	
+		<LinearLayout		
+		android:layout_width="fill_parent"
+		android:layout_height="50dip"
+		android:layout_gravity="bottom"
+		android:gravity="center|bottom"
+		android:orientation="horizontal"
+		android:background="@color/bottom_background"
+	>
+
+		<Button
+			android:id="@+id/addFuelButtonCamera"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:minWidth="150dp"
+			android:text="@string/addfuel_camerabutton"
+			android:onClick="onClickTakePicture"
+		/>
+		
+		<Button
+			android:id="@+id/addFuelButtonSave"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:minWidth="150dp"
+			android:text="@string/addfuel_savebutton"
+		/>
+
+	</LinearLayout>
+
+</LinearLayout>

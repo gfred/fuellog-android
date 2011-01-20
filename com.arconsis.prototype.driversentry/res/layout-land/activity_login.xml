@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/backgroundcolor"
+>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="45dip"
+		android:orientation="horizontal"
+		android:background="@color/top_background"
+	>
+			<ImageView
+			android:layout_width="wrap_content"
+	 		android:layout_height="fill_parent"
+	 		android:src="@drawable/icon"
+	 		 />
+	    <TextView
+	    	android:text="Fleetmanager"
+	    	android:textColor="@color/top_text"
+	    	android:textSize="18sp"	    	
+	    	android:textStyle="bold"	    	
+	 		android:layout_width="0dp"
+	 		android:layout_weight="1" 
+	 		android:layout_height="fill_parent" 
+	 		android:layout_gravity="center" 
+	 		android:gravity="center_vertical"
+	 		android:paddingLeft="12dip"
+	 		android:paddingRight="12dip"
+	 		android:singleLine="true"
+			android:ellipsize="end"
+	    />
+	
+	</LinearLayout>
+
+
+	<LinearLayout
+		android:layout_width="fill_parent"	
+		android:layout_height="wrap_content"		
+		android:orientation="vertical"
+		android:layout_weight="1"
+	>
+    
+		<TextView  
+		    android:layout_width="fill_parent" 
+		    android:layout_height="wrap_content" 
+		    android:text="@string/login_user"
+		    android:textColor="@color/text"
+		/>
+		    
+		<EditText
+			android:id="@+id/login_user_input"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:singleLine="true"
+		/>
+    
+		<TextView  
+		    android:layout_width="fill_parent" 
+		    android:layout_height="wrap_content" 
+		    android:text="@string/login_password"
+		    android:textColor="@color/text"
+		/> 
+    
+		<EditText
+			android:id="@+id/login_password_input"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:password="true"
+			android:singleLine="true"
+		/>   
+
+		<TextView
+		    android:id="@+id/server_label" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:textColor="@color/text"
+			android:text="Server:"
+			android:visibility="visible"
+		/>
+
+		<Spinner 
+			android:id="@+id/server_spinner" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:visibility="visible"
+		/>
+		
+	</LinearLayout>
+
+
+	<LinearLayout		
+		android:layout_width="fill_parent"
+		android:layout_height="50dip"
+		android:layout_gravity="bottom"
+		android:gravity="center|bottom"
+		android:orientation="horizontal"
+		android:background="@color/bottom_background"
+	>
+
+		<Button
+			android:id="@+id/login_button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:minWidth="170dp"
+			android:text="@string/login_button"
+			android:onClick="onClickLogin"
+		/>
+
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="addBookingOptions">	
+		<item>Dienstfahrt</item>
+		<item>Fahrtenbuchung</item>
+		<item>Tanken</item>
+		<item>Schadensfall</item>
+		<item>Sonstige Kosten</item>
+		<item>Sonstige Buchungen</item>
+	</string-array>
+</resources>
