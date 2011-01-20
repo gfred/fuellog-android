@@ -65,15 +65,11 @@
       	android:orientation="vertical"
 	>
 	
-			<TextView
-            	android:text="@string/driverslogentry_date"
-				style="@style/BookingDescriptions"
-            />
-            
             <LinearLayout
             	android:layout_height="wrap_content"
             	android:layout_width="fill_parent"
             	android:orientation="horizontal"
+            	android:layout_marginTop="4dip"
             >
   	        	<EditText
 	            	android:id="@+id/driverslogentryDate"
@@ -84,7 +80,9 @@
   	  				android:maxLength="200" 
       				android:layout_width="fill_parent"
       				android:layout_height="wrap_content"
-  					android:layout_weight="1"  					 
+  					android:layout_weight="1"  	
+  					android:hint="@string/driverslogentry_date"
+  					android:onClick="onClickDate"				 
 	            />	            
 	            <ImageButton
 	            	android:onClick="onClickDate"
@@ -92,13 +90,7 @@
 					style="@style/BookingButton"
 	            />
             </LinearLayout>
-            
-            
- 			<TextView
-            	android:text="@string/driverslogentry_time"
-				style="@style/BookingDescriptions"
-            />
-            
+              
             <LinearLayout
             	android:layout_height="wrap_content"
             	android:layout_width="fill_parent"
@@ -112,7 +104,9 @@
   	  				android:maxLength="200" 
       				android:layout_width="fill_parent"
       				android:layout_height="wrap_content"
-  					android:layout_weight="1"  					 
+  					android:layout_weight="1"  		
+  					android:hint="@string/driverslogentry_time"
+  					android:onClick="onClickTime"			 
 	            />	            
 	            <ImageButton
 	            	android:onClick="onClickTime"
@@ -121,25 +115,21 @@
 	            />
             </LinearLayout>           
             
-   			<TextView
-            	android:text="@string/driverslogentry_location"
-				style="@style/BookingDescriptions"
-            />
-            
             <LinearLayout
             	android:layout_height="wrap_content"
             	android:layout_width="fill_parent"
             	android:orientation="horizontal"
             >
   	        	<EditText
-	            	android:id="@+id/riverslogentryLocation"
+	            	android:id="@+id/driverslogentryLocation"
 	            	android:maxLines="1" 
 	            	android:inputType="none"
-	            	android:focusable="false"
   	  				android:maxLength="200" 
       				android:layout_width="fill_parent"
       				android:layout_height="wrap_content" 
-      				android:layout_weight="1"					 
+      				android:layout_weight="1"		
+      				android:hint="@string/driverslogentry_location"		
+      				android:onClick="onClickLocation"	 
 	            />	            
 	            <ImageButton
 	            	android:onClick="onClickLocation"
@@ -147,39 +137,38 @@
 					style="@style/BookingButton"
 	            />
             </LinearLayout> 
-            
-   			<TextView
-            	android:text="@string/driverslogentry_mileage"
-				style="@style/BookingDescriptions"
-            />
-            
-	       	<EditText
-	         	android:id="@+id/driverslogentryMileage"
-	         	android:maxLines="1" 
-	         	android:focusable="false"
- 				android:maxLength="200" 
- 				android:digits="0123456789."
-       			android:inputType="number|numberSigned|numberDecimal"
-  				android:layout_width="fill_parent"
-  				android:layout_height="wrap_content" 			
-				android:paddingRight="5dip"		
-				android:paddingLeft="1dip"
-	         />	            
-            
-          	<TextView
-            	android:text="@string/driverslogentry_comment"
-				style="@style/BookingDescriptions"
-            />
-            
+          
+            <LinearLayout
+            	android:layout_height="wrap_content"
+            	android:layout_width="fill_parent"
+            	android:orientation="horizontal"
+            >
+		       	<EditText
+		         	android:id="@+id/driverslogentryMileage"
+		         	android:maxLines="1" 
+	 				android:maxLength="200" 
+	 				android:digits="0123456789."
+	       			android:inputType="number|numberSigned|numberDecimal"
+	  				android:layout_width="fill_parent"
+	  				android:layout_height="wrap_content" 
+	  				android:layout_weight="1"				
+					android:hint="@string/driverslogentry_mileage"
+		         />	           
+	            <ImageView
+	            	android:src="@drawable/ruler"
+					style="@style/BookingButton"
+	            />
+            </LinearLayout> 
+                      
        		<EditText
-	            	android:id="@+id/driverslogentryComment"
-	            	android:maxLines="1" 
-	            	android:focusable="false"
-  	  				android:maxLength="200" 
-      				android:layout_width="fill_parent"
-      				android:layout_height="wrap_content" 			
-  					android:paddingRight="5dip"		
-  					android:paddingLeft="1dip"	 
+            	android:id="@+id/driverslogentryComment"
+            	android:lines="4" 
+  				android:maxLength="120" 
+   				android:layout_width="fill_parent"
+   				android:layout_height="wrap_content" 								 
+				android:hint="@string/driverslogentry_comment"
+				android:layout_weight="1"
+				android:gravity="top"
            	/>	            
 
             
@@ -224,20 +213,37 @@
 		android:background="@color/bottom_background"
 	>
 
-		<Button
+		<ImageButton
 			android:id="@+id/driverslogentryButtonCamera"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:minWidth="150dp"
-			android:text="@string/driverslogentry_camerabutton"
+			android:src="@drawable/camera"
+			android:layout_width="48dip"
+			android:layout_height="48dip"			
 			android:onClick="onClickTakePicture"
+			android:scaleType="fitXY"
+			android:paddingTop="1dip"
+			android:paddingRight="3dip"
+			android:paddingLeft="3dip"
+			android:paddingBottom="2dip"				
+		/>
+		
+		<ImageButton
+			android:id="@+id/driverslogentryPicturesButton"
+			android:src="@drawable/pictures"
+			android:layout_width="48dip"
+			android:layout_height="48dip"			
+			android:onClick="onClickPictures"
+			android:adjustViewBounds="true"
+			android:scaleType="fitXY"
+			android:paddingTop="2dip"
+			android:paddingRight="4dip"
+			android:paddingLeft="4dip"
+			android:paddingBottom="6dip"
 		/>
 		
 		<Button
 			android:id="@+id/driverslogentryButtonSave"
-			android:layout_width="wrap_content"
+			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:minWidth="150dp"
 			android:text="@string/driverslogentry_savebutton"
 			android:onClick="onClickSaveDriversLogEntry"
 		/>

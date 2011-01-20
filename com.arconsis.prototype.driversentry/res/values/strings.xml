@@ -9,6 +9,7 @@
     <string name="notset">Nicht Gesetzt!</string>
 
     <string name="datePattern">dd.MM.yyyy</string>
+    <string name="timePattern">HH:mm</string>
     
     <string name="account_label">Fleetmanager</string>
     
@@ -64,14 +65,21 @@
 	<string name="documents_last_changed">Letzte Änderung: </string>
 	
 	<string name="driverslogentry_title">Fahrtenbuchung</string>
-	<string name="driverslogentry_date">Datum:</string>
-	<string name="driverslogentry_time">Uhrzeit:</string>
-	<string name="driverslogentry_location">Ort:</string>
-	<string name="driverslogentry_comment">Beschreibung:</string>
-	<string name="driverslogentry_mileage">Kilometerstand:</string>
+	<string name="driverslogentry_date">Datum</string>
+	<string name="driverslogentry_time">Uhrzeit</string>
+	<string name="driverslogentry_location">Ort</string>
+	<string name="driverslogentry_comment">Beschreibung</string>
+	<string name="driverslogentry_mileage">Kilometerstand</string>
 	<string name="driverslogentry_user">Benutzer:</string>
 	<string name="driverslogentry_savebutton">Buchung Anlegen</string>
 	<string name="driverslogentry_camerabutton">Foto Aufnehmen</string>
+	<string name="driverslogentry_nopictures_toast">Noch keine Bilder aufgenommen!</string>
+	<string name="driverslogentry_delete_pictures_toast">Bild gelöscht!</string>
+	<string name="driverslogentry_delete_fail_pictures_toast">Fehler beim löschen! Bild nicht gelöscht!</string>
+	<string name="driverslogentry_picture_title">Bild auswählen zum Anschauen oder Löschen!</string>
+	<string name="driverslogentry_dialog_picture_view">Anschauen</string>
+	<string name="driverslogentry_dialog_picture_delete">Löschen</string>
+	
 	
 	<string name="masterdata_title">Stammdaten</string>
 	<string name="masterdata_licno">Kennzeichen:</string>
