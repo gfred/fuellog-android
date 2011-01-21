@@ -13,6 +13,7 @@
     
     <string name="account_label">Fleetmanager</string>
     
+    <string name="warning_no_internet">Keine Internetverbindung!</string>
    
     
     <string name="menu_quit">Beenden</string>

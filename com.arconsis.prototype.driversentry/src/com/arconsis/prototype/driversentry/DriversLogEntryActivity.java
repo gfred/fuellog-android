@@ -23,6 +23,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -31,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -55,12 +57,13 @@ public class DriversLogEntryActivity extends Activity {
 	private EditText mileageText;
 	private EditText descriptionText;
 
-	private DriversLogEntry entryData;
-	private File tmpFile;
-	private int selection = -1;
-	private LocationManager locationManager;
+	private DriversLogEntry entryData = new DriversLogEntry();
 
-	private List<Address> bestLocations = new ArrayList<Address>();
+	private File tmpPictureFile;
+	private int selection = -1;
+
+	private LocationManager locationManager;
+	private boolean locationEdited = false;
 
 	private LocationListener locationListener = new LocationListener() {
 		@Override
@@ -78,13 +81,13 @@ public class DriversLogEntryActivity extends Activity {
 		@Override
 		public void onLocationChanged(Location location) {
 			if (location.hasAccuracy() && location.getAccuracy() < 30) {
+				entryData.setCurrentLoctaion(location);
+
 				if (locationManager != null) {
 					locationManager.removeUpdates(locationListener);
-					Geocoder gc = new Geocoder(DriversLogEntryActivity.this);
-					try {
-						bestLocations = gc.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-					} catch (IOException e) {
-						e.printStackTrace();
+
+					if (!locationEdited) {
+						new AsyncLocationTask(location).execute(null);
 					}
 				}
 			}
@@ -98,21 +101,44 @@ public class DriversLogEntryActivity extends Activity {
 
 		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-		entryData = new DriversLogEntry();
-
 		dateText = (EditText) findViewById(R.id.driverslogentryDate);
 		dateText.setText(new SimpleDateFormat(getString(R.string.datePattern)).format(entryData.getDate()));
 		timeText = (EditText) findViewById(R.id.driverslogentryTime);
 		timeText.setText(new SimpleDateFormat(getString(R.string.timePattern)).format(entryData.getDate()));
 		locationText = (EditText) findViewById(R.id.driverslogentryLocation);
+		locationText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+			private String tmp;
+
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				if (hasFocus) {
+					tmp = ((TextView) v).getText().toString();
+				} else {
+					if (!((TextView) v).getText().toString().equals(tmp)) {
+						entryData.setBookingLocation(null);
+						tmp = null;
+						locationEdited = true;
+					}
+				}
+			}
+		});
+
 		mileageText = (EditText) findViewById(R.id.driverslogentryMileage);
 		descriptionText = (EditText) findViewById(R.id.driverslogentryComment);
 
 		getLastKnownLocation();
-		getBestCurrentPossibleLocation();
+		getBestPossibleLocation();
 	}
 
-	private void getBestCurrentPossibleLocation() {
+	@Override
+	protected void onPause() {
+		super.onPause();
+		if (locationManager != null) {
+			locationManager.removeUpdates(locationListener);
+		}
+	}
+
+	private void getBestPossibleLocation() {
 		Criteria cr = new Criteria();
 		cr.setAccuracy(Criteria.ACCURACY_FINE);
 		cr.setPowerRequirement(Criteria.POWER_HIGH);
@@ -129,33 +155,16 @@ public class DriversLogEntryActivity extends Activity {
 		}
 	}
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-		if (locationManager != null) {
-			locationManager.removeUpdates(locationListener);
-		}
-	}
-
 	private void getLastKnownLocation() {
 		Location location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-		Geocoder gc = new Geocoder(this);
-
-		try {
-			List<Address> addresses = gc.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-			if (addresses.size() > 0) {
-				locationText.setText(getAddressAsString(addresses.get(0)));
-			}
-		} catch (IOException e) {
-			Log.e(TAG, "IOEXCEPTION @ GeoCoder", e);
-		}
+		new AsyncLocationTask(location).execute(null);
 	}
 
-	private String getAddressAsString(Address address) {
+	private String getAddressAsString(Address address, double accuracy) {
 		if (address != null) {
-			ArrayList<String> entries = new ArrayList<String>(4);
+			ArrayList<String> entries = new ArrayList<String>(5);
 
-			if (address.getThoroughfare() != null) {
+			if (address.getThoroughfare() != null && accuracy < 100) {
 				entries.add(address.getThoroughfare());
 			}
 
@@ -196,6 +205,15 @@ public class DriversLogEntryActivity extends Activity {
 		if (DEBUG) {
 			Log.d(TAG, "Debug");
 		}
+
+		if (mileageText.getText().toString().trim().length() > 0) {
+			entryData.setMileage(Double.parseDouble(mileageText.getText().toString()));
+		} else {
+			entryData.setMileage(Double.parseDouble("0"));
+		}
+
+		entryData.setDescription(descriptionText.getText().toString());
+		entryData.setBookingLocationDesc(locationText.getText().toString());
 	}
 
 	/**
@@ -211,10 +229,11 @@ public class DriversLogEntryActivity extends Activity {
 			ControlValues.SDCARD_FOLDER.mkdir();
 		}
 
-		tmpFile = new File(ControlValues.SDCARD_FOLDER.getAbsolutePath() + "/" + System.currentTimeMillis() + ".png");
+		tmpPictureFile = new File(ControlValues.SDCARD_FOLDER.getAbsolutePath() + "/" + System.currentTimeMillis()
+				+ ".png");
 
 		Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-		Uri uri = Uri.fromFile(tmpFile);
+		Uri uri = Uri.fromFile(tmpPictureFile);
 		intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
 		startActivityForResult(intent, ControlValues.CAMERA_REQUEST_CODE);
 	}
@@ -260,9 +279,7 @@ public class DriversLogEntryActivity extends Activity {
 		if (DEBUG) {
 			Log.d(TAG, "Debug");
 		}
-		if (bestLocations.size() > 0) {
-			locationText.setText(getAddressAsString(bestLocations.get(0)));
-		}
+		new AsyncLocationTask(entryData.getCurrentLoctaion()).execute(null);
 	}
 
 	/**
@@ -336,69 +353,70 @@ public class DriversLogEntryActivity extends Activity {
 			if (entryData.getPictures().size() == 0) {
 				Toast.makeText(this, R.string.driverslogentry_nopictures_toast, Toast.LENGTH_LONG).show();
 			} else {
-				String[] items = new String[entryData.getPictures().size()];
-				for (int i = 0; i < items.length; i++) {
-					items[i] = entryData.getPictures().get(i).getName();
-				}
-
-				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-				builder.setTitle(R.string.driverslogentry_picture_title);
-				builder.setSingleChoiceItems(items, selection, new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int item) {
-						selection = item;
-					}
-				});
-
-				builder.setPositiveButton(R.string.driverslogentry_dialog_picture_view,
-						new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								Intent intent = new Intent();
-								intent.setAction(android.content.Intent.ACTION_VIEW);
-								intent.setDataAndType(Uri.fromFile(entryData.getPictures().get(selection)), "image/png");
-								startActivity(intent);
-								dialog.dismiss();
-								selection = -1;
-								removeDialog(SELECT_IMAGE_DIALOG);
-							}
-						});
-				builder.setNeutralButton(R.string.driverslogentry_dialog_picture_delete,
-						new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								if (entryData.getPictures().get(selection).delete()) {
-									entryData.getPictures().remove(selection);
-									Toast.makeText(DriversLogEntryActivity.this,
-											R.string.driverslogentry_delete_pictures_toast, Toast.LENGTH_LONG).show();
-									dialog.dismiss();
-									selection = -1;
-									removeDialog(SELECT_IMAGE_DIALOG);
-								} else {
-									Toast.makeText(DriversLogEntryActivity.this,
-											R.string.driverslogentry_delete_fail_pictures_toast, Toast.LENGTH_LONG)
-											.show();
-									dialog.dismiss();
-									selection = -1;
-									removeDialog(SELECT_IMAGE_DIALOG);
-								}
-							}
-						});
-				builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.cancel();
-						selection = -1;
-						removeDialog(SELECT_IMAGE_DIALOG);
-					}
-				});
-				return builder.create();
+				return createPictureDialog();
 			}
 		default:
 			break;
 		}
 
 		return super.onCreateDialog(id);
+	}
+
+	private AlertDialog createPictureDialog() {
+		String[] items = new String[entryData.getPictures().size()];
+		for (int i = 0; i < items.length; i++) {
+			items[i] = entryData.getPictures().get(i).getName();
+		}
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+		builder.setTitle(R.string.driverslogentry_picture_title);
+		builder.setSingleChoiceItems(items, selection, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int item) {
+				selection = item;
+			}
+		});
+
+		builder.setPositiveButton(R.string.driverslogentry_dialog_picture_view, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				Intent intent = new Intent();
+				intent.setAction(android.content.Intent.ACTION_VIEW);
+				intent.setDataAndType(Uri.fromFile(entryData.getPictures().get(selection)), "image/png");
+				startActivity(intent);
+				dialog.dismiss();
+				selection = -1;
+				removeDialog(SELECT_IMAGE_DIALOG);
+			}
+		});
+		builder.setNeutralButton(R.string.driverslogentry_dialog_picture_delete, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				if (entryData.getPictures().get(selection).delete()) {
+					entryData.getPictures().remove(selection);
+					Toast.makeText(DriversLogEntryActivity.this, R.string.driverslogentry_delete_pictures_toast,
+							Toast.LENGTH_LONG).show();
+					dialog.dismiss();
+					selection = -1;
+					removeDialog(SELECT_IMAGE_DIALOG);
+				} else {
+					Toast.makeText(DriversLogEntryActivity.this, R.string.driverslogentry_delete_fail_pictures_toast,
+							Toast.LENGTH_LONG).show();
+					dialog.dismiss();
+					selection = -1;
+					removeDialog(SELECT_IMAGE_DIALOG);
+				}
+			}
+		});
+		builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.cancel();
+				selection = -1;
+				removeDialog(SELECT_IMAGE_DIALOG);
+			}
+		});
+		return builder.create();
 	}
 
 	@Override
@@ -437,11 +455,11 @@ public class DriversLogEntryActivity extends Activity {
 		}
 
 		if (requestCode == ControlValues.CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_CANCELED) {
-			tmpFile.delete();
-			tmpFile = null;
+			tmpPictureFile.delete();
+			tmpPictureFile = null;
 		} else if (requestCode == ControlValues.CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-			this.entryData.getPictures().add(tmpFile);
-			tmpFile = null;
+			this.entryData.getPictures().add(tmpPictureFile);
+			tmpPictureFile = null;
 		}
 
 		super.onActivityResult(requestCode, resultCode, data);
@@ -466,5 +484,49 @@ public class DriversLogEntryActivity extends Activity {
 		quitApplication.putExtra(ControlValues.QUIT_APP_RESULT, ControlValues.QUIT_APPLICATION);
 		setResult(ControlValues.QUIT_APPLICATION, quitApplication);
 		super.finish();
+	}
+
+	private class AsyncLocationTask extends AsyncTask<Void, Void, String> {
+		private Location location;
+
+		public AsyncLocationTask(Location location) {
+			this.location = location;
+		}
+
+		@Override
+		protected String doInBackground(Void... params) {
+			Geocoder gc = new Geocoder(DriversLogEntryActivity.this);
+
+			if (location != null) {
+				entryData.setCurrentLoctaion(location);
+
+				try {
+					List<Address> addresses = gc.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+					if (addresses.size() > 0) {
+						if (location.hasAccuracy()) {
+							return getAddressAsString(addresses.get(0), location.getAccuracy());
+						} else {
+							return getAddressAsString(addresses.get(0), -1);
+						}
+					}
+				} catch (IOException e) {
+					Log.e(TAG, "Geocoder - IOException", e);
+				}
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			super.onPostExecute(result);
+
+			if (result == null) {
+				Toast.makeText(DriversLogEntryActivity.this, R.string.warning_no_internet, Toast.LENGTH_LONG).show();
+			} else {
+				locationText.setText(result);
+				locationEdited = false;
+				entryData.setBookingLocation(entryData.getCurrentLoctaion());
+			}
+		}
 	}
 }
