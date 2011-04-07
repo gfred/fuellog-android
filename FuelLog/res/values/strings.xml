@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Fuel Log</string>
+<string name="menu_add">Add</string>
+<string name="menu_quit">Quit</string>
+<string name="add_title">Add new Fuel Log entry</string>
+<string name="add_cancelButton">Cancel</string>
+<string name="error_title">Wrong Input</string>
+<string name="error_msg">Only one or more digits are allowed! Use point for float-pointing numbers.</string>
+
+<string name="error_sd_msg">No SD Card mounted!\nPlease insert or mount your SD card.</string>
+<string name="entry_driven">Driven</string>
+<string name="entry_full">Fuel Costs</string>
+<string name="add_driven">Driven Kilometer:</string>
+<string name="add_fuelcost">Fuel Costs:</string>
+<string name="add_literprice">Fuel Liter Price:</string>
+<string name="entry_literprice">Literprice</string>
+<string name="add_date">Date:</string><string name="options_change">Change entry</string><string name="options_delete">Delete entry</string><string name="options_cancel">Cancel</string>
+<string name="options_title">Options</string>
+<string name="change_title">Edit Entry</string><string name="comment_char">Characters:</string>
+<string name="total_cost">Total cost of fuel:</string><string name="options_comment">Add Comment</string>
+<string name="options_deletecomment">Remove Comment</string>
+<string name="options_editcomment">Edit Comment</string>
+<string name="menu_settings">Preferences</string>
+    
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="notset">Nicht Gesetzt!</string>
+
+	<string name="first_start_msg">... some senseless stuff...</string>
+	<string name="first_start_title">Welcome to Fuel Log</string>
+	
+	<string name="no_preferences_msg">Please enter your start distance in the preferences.\n\nDo you want to enter the start distance now?</string>
+	<string name="no_preferences_title">No start distance set!</string>
+
+	<string name="preferences_title_mandatory">Mandatory Preferences</string>
+	<string name="preferences_current_distance_key">distance</string>
+	<string name="preferences_current_distance">Current Distance</string>
+	<string name="preferences_current_distance_desc">Enter the current driven distance of your car</string>
+	<string name="preferences_title_ui">Units and UI Preferences</string>
+	<string name="preferences_date_pattern_key">date</string>
+	<string name="preferences_date_pattern">Date Pattern</string>
+	<string name="preferences_date_pattern_desc">The default pattern is: dd.MM.yyyy</string>
+	<string name="preferences_currency_key">currency</string>
+	<string name="preferences_currency">Currency</string>
+	<string name="preferences_currency_desc">The default value is: €</string>
+	<string name="preferences_measuringunit_key">measure</string>
+	<string name="preferences_measuringunit">Measuring Unit</string>
+	<string name="preferences_measuringunit_desc">The default value is: Kilometer</string>
+	<string name="preferences_unit_of_volume_key">volume</string>
+	<string name="preferences_unit_of_volume">Unit of Volume</string>
+	<string name="preferences_unit_of_volume_desc">The default value is: Liter</string>
+
+    <string name="datePattern">dd.MM.yyyy</string>   
+      
+	<string name="dashboard_new_fill_up">Fuel</string>
+	<string name="dashboard_history">Fuel History</string>
+	<string name="dashboard_statistics">Statistics</string>
+	<string name="dashboard_preferences">Preferences</string>
+	<string name="dashboard_total">Total:</string>
+	<string name="dashboard_last_fill_up">Last Fuel:</string>
+	<string name="dashboard_no_fill_up">-</string>
+			
+	<string name="fillup_date">Datum:</string>
+	<string name="fillup_mileage">Kilometerstand:</string>
+	<string name="fillup_price">Literpreis:</string>
+	<string name="fillup_amount">Tankkosten:</string>
+	<string name="fillup_comment">Kommentar:</string>
+	<string name="fillup_location">Ort:</string>
+	<string name="fillup_save">Speichern</string>
+	<string name="fillup_takepicture">Tankbeleg Foto</string>
+	<string name="fillup_errordialog_title">Falsche Eingabe</string>
+	<string name="fillup_errordialog_msg">Falsche oder Fehlende Eingaben. Überprüfen Sie ihre Eingaben!</string>
+	
+	<string name="fillupdetails_edit">Edit</string>
+	<string name="fillupdetails_startdistance">Start Distance: </string>
+	<string name="fillupdetails_enddistance">End Distance:</string>
+	<string name="fillupdetails_drivendistance">Driven Distance:</string>
+	<string name="fillupdetails_volumefilledup">Total Volume:</string>
+	<string name="fillupdetails_statistics">Statistics</string>
+</resources>

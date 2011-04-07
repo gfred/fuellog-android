@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="Theme">
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowContentOverlay">@null</item>
+	</style>
+	
+    <style name="TitleBarProgressIndicator" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">14dip</item>
+        <item name="android:layout_marginRight">15dip</item>
+        <item name="android:layout_marginTop">14dip</item>
+        <item name="android:indeterminate">true</item> 
+    </style>
+    
+	<style name="TitleBarSeparator">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">@color/top_separator</item>
+    </style>
+    
+    <style name="EditTextDetails">
+    	<item name="android:textColor">@color/text</item>
+        <item name="android:textSize">16sp</item> 
+        <item name="android:gravity">left|center_vertical|fill_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_weight">1</item>
+    </style>
+    
+    <style name="TextDetails">
+    	<item name="android:textColor">@color/text</item>
+        <item name="android:textSize">16sp</item>
+    	<item name="android:visibility">visible</item>
+    	<item name="android:layout_gravity">center_vertical</item>
+    	<item name="android:padding">3dip</item>
+    </style>
+    
+    <style name="TextDetailsDescription">
+		<item name="android:layout_column">1</item>
+		<item name="android:padding">3dip</item>
+		<item name="android:textColor">@color/text</item>
+		<item name="android:textSize">16sp</item> 
+		<item name="android:layout_gravity">center_vertical</item>
+    </style>
+		
+</resources>
